@@ -21,7 +21,7 @@ const postSchema = new Schema({
     },
     image: {
         type: String,
-        default: ""
+        default: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637458305/goow4psmt5vuzuffjr7a.jpg"
     }
 }, { timestamps: true });
 

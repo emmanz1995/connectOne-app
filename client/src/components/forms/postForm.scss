@@ -1,0 +1,33 @@
+.post-form-container {
+  width: 50%;
+  height: 100%;
+}
+
+.text-field {
+  width: 100%;
+  padding: 7px;
+  margin: 10px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #ddd;
+}
+
+.text-editor {
+  width: 100%;
+  margin: 10px;
+  height: 200px;
+  border: 1px solid #ddd;
+  //border-bottom: 1px solid #ddd;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-add {
+  margin: 10px;
+  padding: 7px 15px;
+  background-color: #fafbff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}

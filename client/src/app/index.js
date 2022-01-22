@@ -1,0 +1,5 @@
+export const CREATE_POSTS = 'CREATE_POSTS';
+export const GET_POSTS = 'GET_POSTS';
+
+export const CREATE_POSTS_ERROR = 'CREATE_POSTS_ERROR';
+export const GET_POSTS_ERROR = 'GET_POSTS_ERROR';

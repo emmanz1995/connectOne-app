@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Playfair+Display&family=Roboto+Condensed&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #fafbff;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {

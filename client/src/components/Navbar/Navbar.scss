@@ -1,8 +1,8 @@
 .nav-container {
-  background-color: #282c34;
+  background-color: transparent;
   width: 100%;
   padding: 2px;
-  color: #fff;
+  //color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,34 +25,41 @@ ul.collapsed {
   padding: 0 5px;
 }
 
+.nav-link {
+  //color: #fff;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 500px) {
   ul.collapsed {
     display: none;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
   .is-expanded {
     overflow: hidden;
-    max-height: 500px; /* approximate max height */
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    -moz-transition-timing-function: ease-in;
-    -webkit-transition-timing-function: ease-in;
-    -o-transition-timing-function: ease-in;
-    transition-timing-function: ease-in;
+    max-height: 500px;
     position: absolute;
     top: 25px;
     left: 0;
     background-color: #282c34;
     width: 100%;
+    border-top: 1px solid #fff;
   }
   li {
-    padding: 15px 10px;
-    margin: 0 0;
+    padding: 10px;
+    margin: 0;
     width: 100%;
+    list-style: none;
   }
   .fa-bars {
     display: block;
     padding: 0 5px;
+  }
+  .nav-link {
+    color: #fff;
   }
 }
