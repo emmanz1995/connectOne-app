@@ -28,6 +28,17 @@ const getPosts = expressAsyncHandler(async (req, res) => {
     }
 })
 
+const getSinglePost = expressAsyncHandler( async (req, res) => {
+    const id = req?.params?.id;
+    try {
+        const singlePost = await Post.findById(id)
+        res?.json(singlePost)
+    } catch(error) {
+        res?.json(error)
+        console.log(error);
+    }
+})
+
 const updatePost = expressAsyncHandler( async (req, res) => {
     const id = req?.params?.id;
     try {
@@ -42,7 +53,19 @@ const updatePost = expressAsyncHandler( async (req, res) => {
     }
 })
 
-const deletePosts = expressAsyncHandler( async (req, res) => {
+const deletePost = expressAsyncHandler( async (req, res) => {
+    const id = req?.params?.id;
+    try {
+        const deletePost = await Post.findByIdAndDelete(id)
+        res?.json(deletePost)
+    } catch(error) {
+        res?.json(error)
+        console.log(error);
+    }
 })
 
-module.exports = { createPost, getPosts, updatePost };
+module.exports = {
+    createPost, getPosts,
+    updatePost, deletePost,
+    getSinglePost
+};

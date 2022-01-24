@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Editor from 'react-medium-editor';
 import 'medium-editor/dist/css/medium-editor.css';
 import 'medium-editor/dist/css/themes/default.css';
 import './postForm.scss';
 import { useDispatch } from 'react-redux';
-import { createPostAction } from '../../app/action/posts';
+import { createPostAction, updatePostsAction } from '../../app/action/posts';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const PostForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { slug } = useParams();
     const initialValues = {
         title: '',
         content: '',
@@ -23,6 +26,12 @@ const PostForm = () => {
     const handleEditorChange = (text) => {
         setFormValues({ ...formValues, content: text });
     }
+    useEffect(() => {
+        axios.get(`http://localhost:5001/api/posts/getpost/${slug}`).then((response) => {
+            setFormValues(response.data)
+        }).catch((error) => console.log(error));
+    }, [])
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const formData = {
@@ -30,10 +39,16 @@ const PostForm = () => {
             content: formValues.content,
             image: formValues.image
         }
-        dispatch(createPostAction(formData)).then(() => {
-            console.log('Success');
-            navigate('/');
-        })
+        if (slug) {
+            dispatch(updatePostsAction(slug, formData)).then(() => {
+                navigate('/');
+            })
+        } else {
+            dispatch(createPostAction(formData)).then(() => {
+                console.log('Success');
+                navigate('/');
+            })
+        }
     }
     return (
         <form className="post-form-container" onSubmit={handleSubmit}>
@@ -42,10 +57,10 @@ const PostForm = () => {
                 className="text-editor"
                 text={formValues.content}
                 onChange={handleEditorChange}
-                options={{ placeholder: true, toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'code', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] } }}
+                options={{ placeholder: false, toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'code', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] } }}
             />
             <input className="text-field" type="text" placeholder="Add Image" value={formValues.image} onChange={handleChange} name="image" />
-            <button type="submit" className="btn-add">Post</button>
+            <button type="submit" className="btn-add">{slug ? 'Update post' : 'Post'}</button>
         </form>
     );
 }

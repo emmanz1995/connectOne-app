@@ -29,8 +29,25 @@
   .post-title {
     position: absolute;
     top: 200px;
-    color: #fff;
     margin: 0 14px;
+    .fa-edit, a {
+      color: #fff;
+    }
+  }
+  .fa-edit {
+    display: none;
+  }
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+    .fa-edit {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 100px;
+      transition: all 0.2s ease-in-out;
+    }
   }
 }
 
