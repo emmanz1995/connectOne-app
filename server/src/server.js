@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
 const postRoutes = require('./routes/post.routes');
 const categoriesRoutes = require('./routes/categories.routes');
+const authRoutes = require('./routes/auth.routes');
 const multer = require('multer');
 
 const app = express();
@@ -41,6 +42,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
 app.use('/api/posts', postRoutes);
 app.use('/api/categories', categoriesRoutes);
+app.use('/api/auth', authRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
