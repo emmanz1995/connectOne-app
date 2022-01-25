@@ -19,7 +19,7 @@ const postSchema = new Schema({
         type: Array,
         required: false
     },
-    likes: {
+    like: {
         type: Array,
         required: false
     },

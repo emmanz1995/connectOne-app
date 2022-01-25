@@ -64,8 +64,20 @@ const deletePost = expressAsyncHandler( async (req, res) => {
     }
 })
 
+const likePost = expressAsyncHandler(async (req, res) => {
+    const id = req?.params?.id
+    try {
+        const likePost = await Post.findByIdAndUpdate(id, {
+            $push: {like: 1 }
+        })
+        res?.json(likePost)
+    } catch(error) {
+        res?.json(error);
+    }
+})
+
 module.exports = {
     createPost, getPosts,
     updatePost, deletePost,
-    getSinglePost
+    getSinglePost, likePost
 };
