@@ -1,6 +1,7 @@
 .post-container {
   width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 .flex-card {
@@ -8,7 +9,7 @@
   align-items: center;
   grid-gap: 20px;
   flex-wrap: wrap;
-  width: 75%;
+  width: 85%;
   margin: 0 10px;
 }
 
@@ -52,5 +53,6 @@
 }
 
 .sidebar-container {
-  width: 35%;
+  width: 15%;
+  margin: 10px;
 }

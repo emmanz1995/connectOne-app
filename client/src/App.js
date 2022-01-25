@@ -8,8 +8,6 @@ import Post from "./pages/dashboard/Post";
 import UpdatePost from "./pages/updatePost/UpdatePost";
 
 function App() {
-  const [toggleUpdateForm, setToggleUpdateForm] = useState(false);
-  // const toggleForm = () => setToggleUpdateForm(true)
   return (
     <div>
       <Navbar />
