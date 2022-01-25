@@ -19,6 +19,10 @@ const postSchema = new Schema({
         type: Array,
         required: false
     },
+    likes: {
+        type: Array,
+        required: false
+    },
     image: {
         type: String,
         default: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637458305/goow4psmt5vuzuffjr7a.jpg"
