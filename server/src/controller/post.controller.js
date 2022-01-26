@@ -4,7 +4,8 @@ const expressAsyncHandler = require('express-async-handler');
 const createPost = expressAsyncHandler(async (req, res) => {
     const { title, content, image, categories } = req?.body;
     try {
-        const newPost = await Post.create({ title, content, image, categories })
+        const newPost = await Post.create({ title, content, image, categories, postedBy: req?.user?._id })
+        console.log(req?.user)
         res?.json(newPost)
     } catch(error) {
         res?.json(error)

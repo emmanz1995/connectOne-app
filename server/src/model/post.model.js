@@ -30,7 +30,7 @@ const postSchema = new Schema({
     },
     postedBy: {
         type: ObjectId,
-        ref: 'user'
+        ref: 'user',
     }
 }, { timestamps: true });
 
