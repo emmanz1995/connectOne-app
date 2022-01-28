@@ -74,7 +74,7 @@ const likePost = expressAsyncHandler(async (req, res) => {
     }
     try {
         const likePost = await Post.findByIdAndUpdate({ _id: id }, {
-            $push: {like: userId }
+            $push: { like: userId }
         }, {
             new: true
         })
