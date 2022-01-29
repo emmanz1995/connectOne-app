@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './auth.scss';
 import LoginImg from '../../assets/undraw_secure_login_pdn4.svg';
+import { onLogin } from '../../app/action/auth';
+import { useDispatch } from 'react-redux';
 
 function Login() {
+    const dispatch = useDispatch();
+    const [loginInputs, setLoginInputs] = useState({
+        username: '',
+        password: ''
+    })
+    const handleChange = (evt) => {
+        const { name, value } = evt.target;
+        setLoginInputs({...loginInputs, [name]: value})
+    }
+    const handleLogin = (evt) => {
+        evt.preventDefault();
+        const formData = {
+            username: loginInputs?.username,
+            password: loginInputs?.password
+        }
+        dispatch(onLogin(formData)).then((success) => {
+            console.log(success);
+        }).catch((error) => console.log(error))
+    }
     return (
         <div className="main-container">
             <div className="secondary-container">
@@ -14,12 +35,12 @@ function Login() {
                 <div className="background">
                     <div className="form-background">
                         <h3><i className="fas fa-key" />{' '}Login</h3><br />
-                        <form className="auth-form">
+                        <form className="auth-form" onSubmit={handleLogin}>
                             <div>
                                 <label htmlFor="username">Username</label>
-                                <input type="text" className="input-field" placeholder="John.Doe" /><br/><br/>
+                                <input type="text" className="input-field" placeholder="John.Doe" value={loginInputs?.username} onChange={handleChange} name="username" /><br/><br/>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" className="input-field" placeholder="*****************" /><br/><br/>
+                                <input type="password" className="input-field" placeholder="*****************" value={loginInputs?.password} onChange={handleChange} name="password" /><br/><br/>
                                 <span>
                                     <input type="checkbox" name="passwordReveal" value="Reveal Password" />
                                     <label htmlFor="passwordReveal">Reveal Password</label>
