@@ -47,9 +47,9 @@
   width: 100%;
   border-radius: 6px;
   padding: 10px;
-  border: solid 1px #ddd;
+  border: solid 1px #6c63ff;
   &:focus {
-    outline: 1px solid #6c63ff;
+    outline: 2px solid #6c63ff;
   }
 }
 
@@ -59,6 +59,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+  background-color: #6c63ff;
 }
 
 .auth-background {
@@ -74,4 +75,5 @@
   padding: 5px 15px;
   cursor: pointer;
   color: #fff;
+  width: 100%;
 }
