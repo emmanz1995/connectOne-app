@@ -1,4 +1,4 @@
-import { AUTHENTICATE_USER, AUTHENTICATE_USER_ERROR } from "../index";
+import { AUTHENTICATE_USER, AUTHENTICATE_USER_ERROR } from '../index';
 
 const currentUser = JSON.parse(localStorage.getItem('jwt'))
 

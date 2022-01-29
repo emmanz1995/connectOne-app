@@ -5,15 +5,17 @@ import {
     UPDATE_POSTS_ERROR, DELETE_POSTS_ERROR
 } from '../index';
 import axios from 'axios';
+import {AuthHeader} from "../../util/authHeader";
 
 const URL_API = process.env.REACT_APP_API_URL;
+
+const AuthorizationHeader = AuthHeader();
+AuthorizationHeader['Content-Type'] = 'application/json';
 
 export const createPostAction = (formData) => async (dispatch) => {
     try {
         const response = await axios.post(`${URL_API}/api/posts/createpost`, formData, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            headers: AuthorizationHeader
         })
         dispatch({
             type: CREATE_POSTS,
@@ -46,9 +48,7 @@ export const getPostsAction = () => async (dispatch) => {
 export const updatePostsAction = (id, formData) => async (dispatch) => {
     try {
         const response = await axios.put(`${URL_API}/api/posts/updatepost/${id}`, formData, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            headers: AuthorizationHeader
         })
         dispatch({
             type: UPDATE_POSTS,
@@ -65,7 +65,11 @@ export const updatePostsAction = (id, formData) => async (dispatch) => {
 
 export const deletePostsAction = (id) => async (dispatch) => {
     try {
-        const response = await axios.delete(`${URL_API}/api/posts/deletepost/${id}`)
+        const response = await axios.delete(`${URL_API}/api/posts/deletepost/${id}`, {
+            headers: {
+                Authorization: AuthHeader()
+            }
+        })
         dispatch({
             type: DELETE_POSTS,
             payload: response.data

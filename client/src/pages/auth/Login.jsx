@@ -3,9 +3,14 @@ import './auth.scss';
 import LoginImg from '../../assets/undraw_secure_login_pdn4.svg';
 import { onLogin } from '../../app/action/auth';
 import { useDispatch } from 'react-redux';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Login() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const authState = useSelector(state => state.auth);
+    const { isAuthenticated } = authState;
     const [loginInputs, setLoginInputs] = useState({
         username: '',
         password: ''
@@ -20,9 +25,12 @@ function Login() {
             username: loginInputs?.username,
             password: loginInputs?.password
         }
-        dispatch(onLogin(formData)).then((success) => {
+        dispatch(onLogin(formData, navigate)).then((success) => {
             console.log(success);
         }).catch((error) => console.log(error))
+    }
+    if(isAuthenticated) {
+        return <Navigate to={{ pathname: '/dashboard' }} />
     }
     return (
         <div className="main-container">
@@ -49,14 +57,13 @@ function Login() {
                                 <br /><br />
                                 <div>
                                     <p>Need an account? Join here:</p><br/>
-                                    <button className="join-btn">Register</button>
+                                    <button className="join-btn" onClick={() => navigate('/register')}>Register</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            {/*<div className="auth-background"></div>*/}
         </div>
     );
 }

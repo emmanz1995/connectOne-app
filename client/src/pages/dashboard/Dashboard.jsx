@@ -15,7 +15,10 @@ function Dashboard() {
     }, [dispatch])
     return (
         <div className="dashboard-container">
-            <Banner />
+            <Banner
+                title="MERN STORYTIME"
+                description="Write up stories that I tell others about you or your personal stuggles in life or read a interesting story and rate them with our rating system or even leave a comment if you want to go that far."
+            />
             <div className="post-container">
                 <div className="flex-card">
                     {data?.length > 0 ? data?.map(post => (

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { ObjectId } = mongoose.Schema.Types;
 
 const postSchema = new Schema({
     title: {
@@ -29,7 +28,7 @@ const postSchema = new Schema({
         default: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637458305/goow4psmt5vuzuffjr7a.jpg"
     },
     postedBy: {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     }
 }, { timestamps: true });
