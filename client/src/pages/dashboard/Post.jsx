@@ -18,6 +18,7 @@ function Post() {
         axios.get(`${REACT_APP_API_URL}/api/posts/getpost/${slug}`).then((success) => {
             setPost(success.data);
             console.log(success.data);
+            console.log('Running!')
         })
     }, [])
     function handleDeletePost() {
@@ -33,11 +34,17 @@ function Post() {
             />
             <br/>
             <div className="post-content">
-                <p>{post?.content}</p>
+                <p style={{ textAlign: "justify" }}>{post?.content}</p>
             </div>
             <div className="post-action">
-                <span>
-                    <i className="fas fa-trash" onClick={handleDeletePost} />{' '}<i className="far fa-edit" onClick={() => navigate(`/update-post/${slug}`)} />{' '}<i className="far fa-star"></i>
+                <span className="action-icons">
+                    <div>
+                        <i className="fas fa-trash" onClick={handleDeletePost} />{' '}
+                        <i className="far fa-edit" onClick={() => navigate(`/update-post/${slug}`)} />
+                    </div>
+                    <div>
+                        This Rocks <i className="far fa-star" />
+                    </div>
                 </span>
             </div>
             <div className="comment-content">

@@ -1,6 +1,8 @@
+@import '../../scss/main';
+
 .main-container {
   height: 94.3vh;
-  background-image: url('../../assets/work-3938876_1920.jpg');
+  background-image: url('../../assets/abstract_background.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -56,11 +58,19 @@
 .btn-auth {
   width: 100%;
   border-radius: 6px;
+  border: solid 2px $MainTheme;
   padding: 10px;
-  border: none;
   cursor: pointer;
-  background-color: #6c63ff;
-  color: #fff;
+  //background-color: $LightTheme;
+  background: linear-gradient(to left, transparent 50%, $MainTheme 50%) right;
+  background-size: 200%;
+  transition: 0.5s ease-out;
+  color: $MainTheme;
+  &:hover {
+    background-color: $MainTheme;
+    color: $LightTheme;
+    background-position: left;
+  }
 }
 
 .auth-background {

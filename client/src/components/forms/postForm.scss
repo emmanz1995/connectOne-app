@@ -1,3 +1,5 @@
+@import '../../scss/main';
+
 .post-form-container {
   width: 50%;
   height: 100%;
@@ -11,7 +13,7 @@
   margin: 10px;
   border: none;
   background-color: transparent;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid $MainTheme;
 }
 
 .text-editor {
@@ -19,7 +21,7 @@
   margin: 10px;
   padding: 10px;
   height: 200px;
-  border: 1px solid #ddd;
+  border: 2px solid $MainTheme;
   &:focus {
     outline: none;
   }
@@ -28,10 +30,17 @@
 .btn-add {
   margin: 10px;
   padding: 7px 15px;
-  background-color: #fafbff;
-  border: 1px solid #ddd;
+  background: linear-gradient(to right, transparent 50%, $MainTheme 50%) left;
+  background-size: 200%;
+  border: 2px solid $MainTheme;
+  transition: 0.5s ease-out;
   border-radius: 4px;
   cursor: pointer;
+  &:hover {
+    background-color: $MainTheme;
+    background-position: right;
+    color: $LightTheme;
+  }
 }
 
 //.input-comment {

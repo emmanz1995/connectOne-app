@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './dashboard.scss';
 import Banner from '../../components/banner/Banner';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPostsAction, deletePostsAction } from '../../app/action/posts';
+import { getPostsAction } from '../../app/action/posts';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 
@@ -12,6 +12,7 @@ function Dashboard() {
     const data = useSelector(state => state?.posts)
     useEffect(() => {
         dispatch(getPostsAction())
+        console.log('Running')
     }, [dispatch])
     return (
         <div className="dashboard-container">
@@ -28,9 +29,9 @@ function Dashboard() {
                         </div>
                     )): <p>No posts found</p>}
                 </div>
-                <div className="sidebar-container">
-                    <Sidebar />
-                </div>
+                {/*<div className="sidebar-container">*/}
+                {/*    <Sidebar />*/}
+                {/*</div>*/}
             </div>
         </div>
     );
