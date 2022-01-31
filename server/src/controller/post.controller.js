@@ -14,6 +14,7 @@ const createPost = expressAsyncHandler(async (req, res) => {
 
 const getPosts = expressAsyncHandler(async (req, res) => {
     const categoryName = req?.query?.category
+    const username = req?.query?.username
     try {
         let posts;
         if(categoryName) {

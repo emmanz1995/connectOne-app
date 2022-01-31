@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Banner from "../../components/banner/Banner";
+import Banner from '../../components/banner/Banner';
 import './dashboard.scss';
+import Comments from '../../components/Comments/Comments';
 
 function Post() {
     const [post, setPost] = useState({})
@@ -23,6 +24,11 @@ function Post() {
             />
             <div className="post-content">
                 <p>{post?.content}</p>
+            </div>
+            <div className="comment-content">
+                <h3>Comments</h3>
+                <hr />
+                <Comments />
             </div>
         </div>
     );
