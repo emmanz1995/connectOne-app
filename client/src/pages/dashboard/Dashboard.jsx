@@ -9,7 +9,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 function Dashboard() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const data = useSelector(state => state.posts)
+    const data = useSelector(state => state?.posts)
     useEffect(() => {
         dispatch(getPostsAction())
     }, [dispatch])

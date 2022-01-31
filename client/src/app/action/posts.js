@@ -70,6 +70,7 @@ export const deletePostsAction = (id) => async (dispatch) => {
                 Authorization: AuthHeader()
             }
         })
+        console.log(AuthHeader())
         dispatch({
             type: DELETE_POSTS,
             payload: response.data

@@ -1,0 +1,17 @@
+.input-comment {
+  width: 100%;
+  border: 1px solid #6c63ff;
+}
+
+.btn-comment {
+  padding: 5px 10px;
+  border: 2px solid #6c63ff;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #6c63ff;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+  }
+}
