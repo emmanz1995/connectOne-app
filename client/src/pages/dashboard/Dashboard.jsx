@@ -4,7 +4,6 @@ import Banner from '../../components/banner/Banner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostsAction } from '../../app/action/posts';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from '../../components/sidebar/Sidebar';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -17,7 +16,7 @@ function Dashboard() {
     return (
         <div className="dashboard-container">
             <Banner
-                title="MERN STORYTIME"
+                title="MERNBLOG"
                 description="Write up stories that I tell others about you or your personal stuggles in life or read a interesting story and rate them with our rating system or even leave a comment if you want to go that far."
             />
             <div className="post-container">
@@ -29,9 +28,6 @@ function Dashboard() {
                         </div>
                     )): <p>No posts found</p>}
                 </div>
-                {/*<div className="sidebar-container">*/}
-                {/*    <Sidebar />*/}
-                {/*</div>*/}
             </div>
         </div>
     );
