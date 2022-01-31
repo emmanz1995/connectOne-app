@@ -1,4 +1,4 @@
-# Mern StoryTime
+# MERN BLOG
 The Mern StoryTime Web Application is a blog web app that is in the process of being developed. The web app allows the users to register for an account, login, create, read, update and delete posts, and comments that the users posts. This initial purpose of this web application was just a fun side project for me to learn and develop my skills in both frontend and backend but I've been inspired to push for more features to be implemented, and I will eventually deploy this project to heroku in the near future.
 
 Features/requirements:
@@ -36,3 +36,12 @@ In order to run the app successfully in the broswer you would need to type in th
 To run the node.Js api type in the command npm start.
 
 To run the react app type in the command npm start.
+
+Screenshots of web app running:
+<img width="1439" alt="Login Page - MERN Blog" src="https://user-images.githubusercontent.com/32387539/151886158-78827cb1-970d-4c2f-95b9-1d84cdf1dec3.png">
+
+<img width="1440" alt="Post Page - MERN Blog" src="https://user-images.githubusercontent.com/32387539/151887289-c9acdd49-0585-4741-9133-cda6b65ed22d.png">
+
+<img width="1440" alt="Overview Post Page - MERN Blog" src="https://user-images.githubusercontent.com/32387539/151887574-91492cd6-ffe5-4482-9056-09fb0f12abbd.png">
+
+
