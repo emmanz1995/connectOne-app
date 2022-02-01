@@ -18,11 +18,12 @@ const Comments = ({ postId }) => {
         <div>
             <div className="comment-section">
                 <p>{commentContent?.length > 0 ? commentContent?.map(content => (
-                    <div key={content._id}>
-                        <p>{content?.comment}</p>
+                    <div key={content._id} className="row">
+                        <p>{content?.comment}</p> <p>{content?.reader?.username}</p>
                     </div>
                 )): <p>No Comments found!</p>}</p>
             </div>
+            <br />
             <form onSubmit={handleComment}>
             <textarea
                 className="input-comment"

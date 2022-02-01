@@ -25,7 +25,7 @@ const addComment = expressAsyncHandler(async (req, res) => {
 const getComment = expressAsyncHandler(async (req, res) => {
     const postId = req?.params?.postId;
     try {
-        const retrieveComments = await Comments.find({post: { _id: postId }})
+        const retrieveComments = await Comments.find({post: { _id: postId }}).populate('reader', 'username')
         res?.json(retrieveComments)
     } catch(error) {
         res?.json(error);

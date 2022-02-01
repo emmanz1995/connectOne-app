@@ -10,6 +10,7 @@
     "axios": "^0.25.0",
     "framer-motion": "^6.2.1",
     "install": "^0.13.0",
+    "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",

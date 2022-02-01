@@ -11,43 +11,10 @@
   grid-gap: 20px;
   flex-wrap: wrap;
   width: 85%;
-  margin: 0 10px;
-}
+  margin: 20px auto;
+  align-items: center;
+  //justify-content: space-between;
 
-.post-card {
-  width: 290px;
-  height: 150px;
-  margin: 40px 0;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-  cursor: pointer;
-  .image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-  }
-  .post-title {
-    margin: 0 14px;
-    .fa-edit, a {
-      color: #fff;
-    }
-  }
-  .fa-edit {
-    display: none;
-  }
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: none;
-    .fa-edit {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 100px;
-      transition: all 0.2s ease-in-out;
-    }
-  }
 }
 
 .sidebar-container {
@@ -76,6 +43,6 @@
   align-items: center;
 }
 
-.fa-star, fa-trash, fa-edit {
+.fa-star, .fa-trash, .fa-edit {
   cursor: pointer;
 }

@@ -1,0 +1,36 @@
+@import '../../scss/main';
+
+.card-container {
+  width: 45%;
+  border: 1px solid #ccc;
+}
+.card-wrapper {
+  width: 100%;
+  height: auto;
+}
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.info-content {
+  margin: 10px;
+}
+
+.card-title {}
+.text-container {}
+
+.btn-view-post {
+  background: linear-gradient(to left, transparent 50%, $MainTheme 50%) right;
+  background-size: 200%;
+  transition: 0.5s ease-out;
+  padding: 5px 10px;
+  border: 2px solid $MainTheme;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: $MainTheme;
+    color: $LightTheme;
+    background-position: left;
+  }
+}

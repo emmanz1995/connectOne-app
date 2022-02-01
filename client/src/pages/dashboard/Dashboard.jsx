@@ -4,6 +4,7 @@ import Banner from '../../components/banner/Banner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostsAction } from '../../app/action/posts';
 import { useNavigate } from 'react-router-dom';
+import Card from '../../components/Card/Card';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -22,11 +23,9 @@ function Dashboard() {
             <div className="post-container">
                 <div className="flex-card">
                     {data?.length > 0 ? data?.map(post => (
-                        <div className="post-card" key={post?._id} onClick={() => navigate('/post/' + post?._id)}>
-                            <img src={post?.image} alt="" className="image" />
-                            <h3 className="post-title">{post?.title}</h3>
-                        </div>
-                    )): <p>No posts found</p>}
+                        <Card post={post} />
+                    )): <p>No Posts found!</p>}
+
                 </div>
             </div>
         </div>
