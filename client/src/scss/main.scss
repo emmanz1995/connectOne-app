@@ -1,3 +1,4 @@
+@use './partials/variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Playfair+Display&family=Roboto+Condensed&display=swap');
 
 * {
@@ -22,5 +23,3 @@ h1, h2, h3, h4, h5, h6, p {
   justify-content: space-between;
 }
 
-$MainTheme: #6c63ff;
-$LightTheme: #f1f1f1;

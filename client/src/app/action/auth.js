@@ -12,7 +12,7 @@ export const onLogin = (formData, navigate) => async dispatch => {
         })
         if(response?.data?.token) {
             localStorage.setItem('jwt', JSON.stringify(response.data));
-            navigate('/dashboard');
+            navigate('/menu');
         }
         dispatch({
             type: AUTHENTICATE_USER,

@@ -51,16 +51,16 @@ const PostForm = () => {
         }
     }
     return (
-        <form className="post-form-container" onSubmit={handleSubmit}>
-            <input className="text-field" type="text" placeholder="Your Title" value={formValues.title} onChange={handleChange} name="title" />
+        <form className="postform" onSubmit={handleSubmit}>
+            <input className="postform__input" type="text" placeholder="Your Title" value={formValues.title} onChange={handleChange} name="title" />
             <Editor
-                className="text-editor"
+                className="postform__textarea"
                 text={formValues.content}
                 onChange={handleEditorChange}
                 options={{ placeholder: false, toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'code', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] } }}
             />
-            <input className="text-field" type="text" placeholder="Add Image" value={formValues.image} onChange={handleChange} name="image" />
-            <button type="submit" className="btn-add">{slug ? 'Update post' : 'Post'}</button>
+            <input className="postform__input" type="text" placeholder="Add Image" value={formValues.image} onChange={handleChange} name="image" />
+            <button type="submit" className="postform__btn">{slug ? 'Update post' : 'Post'}</button>
         </form>
     );
 }

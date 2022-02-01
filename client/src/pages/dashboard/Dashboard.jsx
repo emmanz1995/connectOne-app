@@ -22,10 +22,16 @@ function Dashboard() {
             />
             <div className="post-container">
                 <div className="flex-card">
-                    {data?.length > 0 ? data?.map(post => (
-                        <Card post={post} />
-                    )): <p>No Posts found!</p>}
-
+                    {data?.slice(0, 1).map(post => (
+                        <div className="post-size">
+                            <Card post={post} />
+                        </div>
+                    ))}
+                    {data?.slice(1).map(post => (
+                        <div className="post-size-2">
+                            <Card post={post} />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

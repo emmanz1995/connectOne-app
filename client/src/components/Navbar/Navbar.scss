@@ -1,13 +1,14 @@
-@import '../../scss/main';
+@use '../../scss/partials/_variables.scss' as *;
+@use '../../scss/partials/_mixins.scss' as *;
 
 .nav-container {
   background-color: transparent;
   width: 100%;
   padding: 2px;
-  //color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
 }
 
 .fa-bars {
@@ -15,7 +16,7 @@
 }
 
 .title-container {
-  padding: 0 5px;
+  @include titleTheme($MainTheme, 21px);
 }
 
 ul.collapsed {
@@ -30,6 +31,7 @@ ul.collapsed {
 .nav-link {
   color: $MainTheme;
   text-decoration: none;
+  font-weight: 800;
 }
 
 @media screen and (max-width: 500px) {

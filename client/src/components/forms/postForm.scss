@@ -1,49 +1,39 @@
-@import '../../scss/main';
+@use '../../scss/partials/_variables.scss' as *;
+@use '../../scss/partials/_mixins.scss' as *;
 
-.post-form-container {
+.postform {
   width: 50%;
   height: 100%;
   max-width: 1100px;
   margin: 0 auto;
-}
-
-.text-field {
-  width: 100%;
-  padding: 7px;
-  margin: 10px;
-  border: none;
-  background-color: transparent;
-  border-bottom: 2px solid $MainTheme;
-}
-
-.text-editor {
-  width: 100%;
-  margin: 10px;
-  padding: 10px;
-  height: 200px;
-  border: 2px solid $MainTheme;
-  &:focus {
-    outline: none;
+  &__input {
+    width: 100%;
+    padding: 7px;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid $MainTheme;
+  }
+  &__btn {
+    @include btn($MainTheme);
+    margin: 10px;
+    padding: 7px 15px;
+    transition: 0.2s ease-out;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-position: right;
+      color: $LightTheme;
+    }
+  }
+  &__textarea {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    height: 200px;
+    border: 2px solid $MainTheme;
+    &:focus {
+      outline: none;
+    }
   }
 }
-
-.btn-add {
-  margin: 10px;
-  padding: 7px 15px;
-  background: linear-gradient(to right, transparent 50%, $MainTheme 50%) left;
-  background-size: 200%;
-  border: 2px solid $MainTheme;
-  transition: 0.5s ease-out;
-  border-radius: 4px;
-  cursor: pointer;
-  &:hover {
-    background-color: $MainTheme;
-    background-position: right;
-    color: $LightTheme;
-  }
-}
-
-//.input-comment {
-//  border: 1px solid #6c63ff;
-//  padding: 10px;
-//}

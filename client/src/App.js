@@ -9,6 +9,7 @@ import UpdatePost from './pages/updatePost/UpdatePost';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import { PrivateRoute } from './pages/auth/privateRoute';
+import MainMenu from "./pages/menu/MainMenu";
 
 function App() {
   return (
@@ -17,27 +18,32 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login />}/>
         <Route path="/register" element={<Register />} />
+        <Route path="/menu" element={
+          <PrivateRoute>
+            <MainMenu />
+          </PrivateRoute>
+        } />
         <Route path="/dashboard" element={
-            <PrivateRoute>
-                <Dashboard />
-            </PrivateRoute>
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
         } />
         <Route path="/create-post" element={
-            <PrivateRoute>
-                <CreatePost />
-            </PrivateRoute>
+          <PrivateRoute>
+            <CreatePost />
+          </PrivateRoute>
         } />
           <Route path="/update-post/:slug" element={
-              <PrivateRoute>
-                  <UpdatePost />
-              </PrivateRoute>
+            <PrivateRoute>
+              <UpdatePost />
+            </PrivateRoute>
           } />
         <Route path="/post/:slug" element={
-            <PrivateRoute>
-                <Post />
-            </PrivateRoute>
+          <PrivateRoute>
+            <Post />
+          </PrivateRoute>
         } />
-            </Routes>
+      </Routes>
     </div>
   );
 }

@@ -30,7 +30,7 @@ function Login() {
         }).catch((error) => console.log(error))
     }
     if(isAuthenticated) {
-        return <Navigate to={{ pathname: '/dashboard' }} />
+        return <Navigate to={{ pathname: '/menu' }} />
     }
     return (
         <div className="main-container">

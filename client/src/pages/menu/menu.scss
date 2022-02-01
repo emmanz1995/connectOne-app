@@ -1,0 +1,32 @@
+@use '../../scss/partials/_variables.scss';
+@use '../../scss/partials/_mixins.scss';
+
+.menu {
+  &__banner {
+    background-image: url('../../assets/abstract_background.svg');
+    height: 200px;
+    width: 100%;
+  }
+}
+
+.userInfo__section {
+  padding-top: 70px;
+  color: variables.$MainTheme;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn__editProfile {
+  @include mixins.btn(variables.$MainTheme);
+  padding: 5px 10px;
+  transition: 0.2s ease-out;
+  border-radius: 4px;
+  font-weight: bold;
+  &:hover {
+    background-position: right;
+    color: variables.$LightTheme;
+  }
+}

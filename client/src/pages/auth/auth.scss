@@ -1,7 +1,7 @@
-@import '../../scss/main';
+@use '../../scss/partials/_variables.scss' as *;
 
 .main-container {
-  height: 94.3vh;
+  height: 100vh;
   background-image: url('../../assets/abstract_background.svg');
   background-repeat: no-repeat;
   background-position: center;
