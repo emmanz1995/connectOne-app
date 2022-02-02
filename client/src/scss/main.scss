@@ -8,7 +8,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #fafbff;
+  background-color: $BackgroundTheme;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -21,5 +21,6 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  grid-gap: 10px;
 }
 

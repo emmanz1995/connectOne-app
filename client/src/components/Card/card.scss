@@ -1,36 +1,25 @@
 @use '../../scss/partials/_variables.scss' as *;
 
-.card-container {
-  //width: 45%;
-  border: 1px solid #ccc;
-}
-.card-wrapper {
+.card {
   width: 100%;
-  height: auto;
-}
-.img-responsive {
-  width: 100%;
-  height: auto;
-}
+  border: 1px solid $MainTheme;
+  display: flex;
+  justify-content: space-between;
+  &__header{
+    margin: 10px;
+  }
 
-.info-content {
-  margin: 10px;
-}
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-.card-title {}
-.text-container {}
-
-.btn-view-post {
-  background: linear-gradient(to left, transparent 50%, $MainTheme 50%) right;
-  background-size: 200%;
-  transition: 0.5s ease-out;
-  padding: 5px 10px;
-  border: 2px solid $MainTheme;
-  border-radius: 4px;
-  cursor: pointer;
-  &:hover {
-    background-color: $MainTheme;
-    color: $LightTheme;
-    background-position: left;
+  &__img__container {
+    width: 300px;
+  }
+  &__image {
+    width: 100%;
   }
 }
