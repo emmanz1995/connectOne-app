@@ -10,15 +10,6 @@
   flex-direction: column;
 }
 
-.flex-card {
-  display: flex;
-  grid-gap: 20px;
-  flex-wrap: wrap;
-  width: 85%;
-  margin: 20px auto;
-  align-items: center;
-}
-
 .sidebar-container {
   width: 15%;
   margin: 10px;
@@ -47,15 +38,4 @@
 
 .fa-star, .fa-trash, .fa-edit {
   cursor: pointer;
-}
-
-.post-size {
-  width: 70%;
-}
-.post-size-2 {
-  width: 18.6%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
 }

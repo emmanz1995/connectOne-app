@@ -41,12 +41,12 @@ const PostForm = () => {
         }
         if (slug) {
             dispatch(updatePostsAction(slug, formData)).then(() => {
-                navigate('/');
+                navigate('/dashboard');
             })
         } else {
             dispatch(createPostAction(formData)).then(() => {
                 console.log('Success');
-                navigate('/');
+                navigate('/dashboard');
             })
         }
     }

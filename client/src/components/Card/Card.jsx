@@ -12,7 +12,7 @@ const Card = ({ post }) => {
                 <div>
                     <span>
                        <h2>{title}</h2>
-                        <p>{moment(createdAt).format('DD-MM-YY')}</p>
+                        <p>{moment(createdAt).format('DD MMMM YY')}</p>
                     </span><br />
                     <p>Posted By {postedBy?.username}</p>
                     <div className="card__action">
@@ -21,7 +21,7 @@ const Card = ({ post }) => {
                             <i className="far fa-edit" />
                         </span>
                         <span>
-                            <i className="far fa-star" />
+                            1444 <i className="far fa-star" />
                         </span>
                     </div><br/><br/>
                     <button onClick={() => navigate(`/post/${_id}`)} className="btn__editProfile">View More</button>

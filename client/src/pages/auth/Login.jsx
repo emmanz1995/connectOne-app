@@ -42,22 +42,23 @@ function Login() {
                 </div>
                 <div className="background">
                     <div className="form-background">
-                        <h3><i className="fas fa-key" />{' '}Login</h3><br />
-                        <form className="auth-form" onSubmit={handleLogin}>
+                        <h3><i className="fas fa-key" />{' '}Login</h3>
+                        <p>Sign into your account now!</p><br />
+                        <form className="authform" onSubmit={handleLogin}>
                             <div>
                                 <label htmlFor="username">Username</label>
-                                <input type="text" className="input-field" placeholder="John.Doe" value={loginInputs?.username} onChange={handleChange} name="username" /><br/><br/>
+                                <input type="text" className="authform__input" placeholder="John.Doe" value={loginInputs?.username} onChange={handleChange} name="username" /><br/><br/>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" className="input-field" placeholder="*****************" value={loginInputs?.password} onChange={handleChange} name="password" /><br/><br/>
+                                <input type="password" className="authform__input" placeholder="*****************" value={loginInputs?.password} onChange={handleChange} name="password" /><br/><br/>
                                 <span>
                                     <input type="checkbox" name="passwordReveal" value="Reveal Password" />
                                     <label htmlFor="passwordReveal">Reveal Password</label>
                                 </span><br /><br />
-                                <input type="submit" className="btn-auth" value="Login" />
+                                <input type="submit" className="authform__btn" value="Login" />
                                 <br /><br />
                                 <div>
                                     <p>Need an account? Join here:</p><br/>
-                                    <button className="join-btn" onClick={() => navigate('/register')}>Register</button>
+                                    <button className="authform__joinBtn" onClick={() => navigate('/register')}>Register</button>
                                 </div>
                             </div>
                         </form>

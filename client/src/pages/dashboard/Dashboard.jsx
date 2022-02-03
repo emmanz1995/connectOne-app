@@ -27,13 +27,9 @@ function Dashboard() {
                     ))}
                 </div><br />
                 <h3>More Posts</h3><hr />
-                <div>
+                <div className="post-card-container">
                     {data?.slice(2).map(post => (
-                        <div className="article-container" key={post?._id}>
-                            <span>
-                                <h2>{post?.title}</h2>
-                            </span>
-                        </div>
+                        <Card post={post} />
                     ))}
                 </div>
             </div>
