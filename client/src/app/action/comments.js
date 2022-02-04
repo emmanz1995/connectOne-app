@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { AuthHeader } from '../../util/authHeader';
-import {ADD_COMMENT, ADD_COMMENT_ERROR, GET_POSTS, GET_COMMENTS_ERROR, GET_COMMENTS} from '../index';
+import { ADD_COMMENT, ADD_COMMENT_ERROR, GET_COMMENTS_ERROR, GET_COMMENTS } from '../index';
 
 const AuthorizationHeader = AuthHeader()
 AuthorizationHeader['Content-Type'] = 'application/json';

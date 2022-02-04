@@ -9,7 +9,10 @@ const Comments = ({ postId }) => {
     const dispatch = useDispatch();
     const handleComment = (evt) => {
         evt.preventDefault();
-        dispatch(onAddComment(comment, postId))
+        const formData = {
+            comment: comment
+        }
+        dispatch(onAddComment(formData, postId))
     }
     useEffect(() => {
         dispatch(getComments(postId))
@@ -18,8 +21,13 @@ const Comments = ({ postId }) => {
         <div>
             <div className="comment-section">
                 <p>{commentContent?.length > 0 ? commentContent?.map(content => (
-                    <div key={content._id} className="row">
-                        <p>{content?.comment}</p> <p>{content?.reader?.username}</p>
+                    <div key={content._id} className="row comment__section">
+                        <div>
+                            <p>{content?.comment}</p>
+                        </div>
+                        <div>
+                            <p>{content?.reader?.username}</p>
+                        </div>
                     </div>
                 )): <p>No Comments found!</p>}</p>
             </div>
@@ -36,7 +44,6 @@ const Comments = ({ postId }) => {
             />
                 <button type="submit" className="btn-comment">Comment on Post</button>
             </form>
-            {/*<CommentForm postId={postId} />*/}
         </div>
     );
 }
