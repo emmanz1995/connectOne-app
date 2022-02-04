@@ -6,7 +6,7 @@ export default function commentsReducer(comments = initialState, action) {
     const { payload, type } = action;
     switch(type) {
         case ADD_COMMENT:
-            return [...comments, payload]
+            return [comments, payload]
         case ADD_COMMENT_ERROR:
             return {
                 error: payload?.data
