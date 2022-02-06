@@ -19,3 +19,10 @@ export const GET_COMMENTS = 'GET_COMMENTS';
 
 export const ADD_COMMENT_ERROR = 'ADD_COMMENT_ERROR';
 export const GET_COMMENTS_ERROR = 'GET_COMMENTS_ERROR';
+
+export const LIKE_POST = 'LIKE_POST';
+export const LIKE_POST_ERROR = 'LIKE_POST_ERROR';
+
+export const DISLIKE_POST = 'DISLIKE_POST';
+export const DISLIKE_POST_ERROR = 'DISLIKE_POST_ERROR';
+

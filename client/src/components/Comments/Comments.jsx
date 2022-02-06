@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './comments.scss';
 import {getComments, onAddComment} from '../../app/action/comments';
 import { useSelector, useDispatch } from 'react-redux';
+import moment from 'moment';
 
 const Comments = ({ postId }) => {
     const commentContent = useSelector(state => state?.comments);
@@ -26,7 +27,7 @@ const Comments = ({ postId }) => {
                             <p>{content?.comment}</p>
                         </div>
                         <div>
-                            <p>{content?.reader?.username}</p>
+                            <p>{content?.reader?.username} | {moment(content?.createdAt).format('DD/MM/YYYY, hh:mm')}</p>
                         </div>
                     </div>
                 )): <p>No Comments found!</p>}</p>
@@ -38,7 +39,7 @@ const Comments = ({ postId }) => {
                 name="comment"
                 placeholder="Type your Comment"
                 cols="30"
-                rows="10"
+                rows="5"
                 value={comment}
                 onChange={(evt) => setComment(evt.target.value)}
             />

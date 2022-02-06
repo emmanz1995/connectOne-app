@@ -1,3 +1,17 @@
+@use "variables" as *;
+
+@mixin mobile {
+  @media screen and (max-width: $MobileView) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $TabletView) {
+    @content;
+  }
+}
+
 @mixin btn($color) {
   border: solid 2px $color;
   background: linear-gradient(to right, transparent 50%, $color 50%) left;

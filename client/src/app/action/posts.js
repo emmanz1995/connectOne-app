@@ -66,9 +66,7 @@ export const updatePostsAction = (id, formData) => async (dispatch) => {
 export const deletePostsAction = (id) => async (dispatch) => {
     try {
         const response = await axios.delete(`${URL_API}/api/posts/deletepost/${id}`, {
-            headers: {
-                Authorization: AuthHeader()
-            }
+            headers: AuthHeader()
         })
         dispatch({
             type: DELETE_POSTS,

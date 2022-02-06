@@ -12,7 +12,6 @@ function Dashboard() {
     const data = useSelector(state => state?.posts)
     useEffect(() => {
         dispatch(getPostsAction())
-        console.log('Running')
     }, [dispatch])
     return (
         <div className="dashboard-container">
@@ -23,13 +22,13 @@ function Dashboard() {
             <div className="post-container">
                 <div className="row">
                     {data?.slice(0, 2).map(post => (
-                        <Card post={post} />
+                        <Card post={post} key={post?._id} />
                     ))}
                 </div><br />
                 <h3>More Posts</h3><hr />
                 <div className="post-card-container">
                     {data?.slice(2).map(post => (
-                        <Card post={post} />
+                        <Card post={post} key={post?._id} />
                     ))}
                 </div>
             </div>

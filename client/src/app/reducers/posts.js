@@ -2,7 +2,9 @@ import {
     CREATE_POSTS, GET_POSTS,
     UPDATE_POSTS, DELETE_POSTS,
     CREATE_POSTS_ERROR, GET_POSTS_ERROR,
-    UPDATE_POSTS_ERROR, DELETE_POSTS_ERROR
+    UPDATE_POSTS_ERROR, DELETE_POSTS_ERROR,
+    LIKE_POST, LIKE_POST_ERROR, DISLIKE_POST,
+    DISLIKE_POST_ERROR
 } from '../index';
 
 const initialState = []
@@ -43,7 +45,37 @@ function postReducer(posts = initialState, action) {
             return {
                 error: payload?.data
             }
-        default: return posts
+        case LIKE_POST:
+            return posts?.map(likedPost => {
+                if(likedPost?._id === payload?._id) {
+                    return {
+                        ...likedPost,
+                        ...payload
+                    }
+                } else {
+                    return posts;
+                }
+            })
+        case LIKE_POST_ERROR:
+            return {
+                error: payload?.error
+            }
+        case DISLIKE_POST:
+            return posts?.map(dislikedPost => {
+                if(dislikedPost?._id === payload?._id) {
+                    return {
+                        ...dislikedPost,
+                        ...payload
+                    }
+                } else {
+                    return posts
+                }
+            })
+        case DISLIKE_POST_ERROR:
+            return {
+                error: payload?.error
+            }
+        default: return posts;
     }
 
 }
