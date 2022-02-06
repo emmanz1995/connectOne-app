@@ -7,6 +7,8 @@ import Comments from '../../components/Comments/Comments';
 import { useDispatch } from 'react-redux';
 import { deletePostsAction } from '../../app/action/posts';
 import { useNavigate } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function Post() {
     const [post, setPost] = useState({})
@@ -22,10 +24,32 @@ function Post() {
         })
     }, [])
     function handleDeletePost() {
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure to do this.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => alert('Click Yes')
+                },
+                {
+                    label: 'No',
+                    onClick: () => false
+                }
+            ]
+        })
         dispatch(deletePostsAction(slug)).then(() => {
             navigate('/dashboard');
         })
     }
+    // confirmAlert({
+    //     customUI: ({ onClose }) => {
+    //         return (
+    //             <div></div>
+    //         )
+    //     }
+    // })
+
     return (
         <div>
             <Banner
