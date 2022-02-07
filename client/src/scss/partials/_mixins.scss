@@ -18,6 +18,14 @@
   background-size: 200%;
   color: $color;
   cursor: pointer;
+  border-radius: 6px;
+  padding: 10px;
+  transition: 0.2s ease-out;
+  &:hover {
+    background-color: $MainTheme;
+    color: $color;
+    background-position: left;
+  }
 }
 
 @mixin titleTheme($theme, $size) {

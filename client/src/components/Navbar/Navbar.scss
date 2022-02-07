@@ -2,13 +2,15 @@
 @use '../../scss/partials/_mixins.scss' as *;
 
 .nav-container {
-  background-color: transparent;
+  background-color: $MainTheme;
   width: 100%;
-  padding: 2px;
+  //padding: 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  top: 0;
+  padding: 2px 20px;
 }
 
 .fa-bars {
@@ -16,7 +18,7 @@
 }
 
 .title-container {
-  @include titleTheme($MainTheme, 21px);
+  @include titleTheme($LightTheme, 21px);
 }
 
 ul.collapsed {
@@ -25,11 +27,10 @@ ul.collapsed {
   justify-content: space-between;
   list-style: none;
   grid-gap: 20px;
-  padding: 0 5px;
 }
 
 .nav-link {
-  color: $MainTheme;
+  color: $LightTheme;
   text-decoration: none;
   font-weight: 800;
 }

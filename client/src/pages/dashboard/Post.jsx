@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Banner from '../../components/banner/Banner';
-import './dashboard.scss';
+import './home.scss';
 import Comments from '../../components/Comments/Comments';
 import { useDispatch } from 'react-redux';
 import { deletePostsAction } from '../../app/action/posts';
