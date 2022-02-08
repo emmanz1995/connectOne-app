@@ -23,7 +23,7 @@ const Navbar = () => {
                 {!isAuthenticated ? (
                     <>
                         <li><a className="nav-link" href="/register">Register</a></li>
-                        <li><a className="nav-link" href="/">Login</a></li>
+                        <li><a className="nav-link" href="/login">Login</a></li>
                     </>
                 ) : (
                     <>

@@ -8,19 +8,21 @@ import Post from './pages/dashboard/Post';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import { PrivateRoute } from './pages/auth/privateRoute';
-import MainMenu from "./pages/menu/MainMenu";
+import MainMenu from './pages/menu/MainMenu';
+import LandingPage from './pages/landingPage/LandingPage';
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
+        <Route exact path="/" element={<LandingPage />} />
         <Route path="/feed" element={
             <PrivateRoute>
                 <Home />
             </PrivateRoute>
         } />
-        <Route exact path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/menu" element={
           <PrivateRoute>
