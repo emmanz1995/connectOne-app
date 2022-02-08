@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <div className="nav-container">
             <div className="title-container">
-                <h1>MERNBLOG</h1>
+                <h1>ConnectOne</h1>
             </div>
             <i className="fas fa-bars" onClick={() => setShow(!show)} />
             <ul className={!show ? 'collapsed is-expanded' : 'is-expanded'}>
