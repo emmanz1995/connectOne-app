@@ -10,7 +10,7 @@ import { useFormik } from 'formik';
 
 const LoginSchema = Yup.object().shape({
     username: Yup.string()
-        .min(2, 'Too Short!')
+        .min(4, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
     password: Yup.string()
@@ -73,11 +73,10 @@ function Login() {
                         </div>
                         <form className="authform" onSubmit={handleSubmit}>
                             <div>
-                                <label htmlFor="username">Username</label>
                                 <input
                                     type="text"
                                     className="authform__input"
-                                    placeholder="John.Doe"
+                                    placeholder="Username"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     name="username"
@@ -85,11 +84,10 @@ function Login() {
                                 {errors?.username && touched?.username ? (
                                     <div>{errors?.username}</div>
                                 ) : null}
-                                <label htmlFor="password">Password</label>
                                 <input
                                     type="password"
                                     className="authform__input"
-                                    placeholder="*****************"
+                                    placeholder="Password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     name="password"

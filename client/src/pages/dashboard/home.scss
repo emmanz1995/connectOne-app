@@ -1,13 +1,33 @@
 @use '../../scss/partials/_variables.scss' as *;
+@use '../../scss/partials/_mixins.scss' as *;
 
 .posts {
   height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  &__info__container {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .create-btn {
+      @include btn($MainTheme);
+    }
+    @include mobile() {
+      padding: 10px;
+    }
+  }
   &__container1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     grid-gap: 20px;
-    margin: 50px 20px;
+    margin: 20px 0;
+    @include mobile() {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
   }
   &__container2 {
     display: flex;
@@ -15,15 +35,23 @@
     justify-content: space-between;
     grid-gap: 20px;
     flex-wrap: wrap;
-    margin: 0 20px;
   }
 }
 
 .sm-card {
   width: 400px;
-  height: 220px;
+  height: auto;
   border: 1px solid #ddd;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  .posts-content {
+    padding: 10px;
+  }
+  @include mobile() {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
 }
 
 .img {

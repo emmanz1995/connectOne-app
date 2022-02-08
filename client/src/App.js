@@ -15,8 +15,12 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route exact path="/login" element={<Login />} />
+        <Route path="/feed" element={
+            <PrivateRoute>
+                <Home />
+            </PrivateRoute>
+        } />
+        <Route exact path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/menu" element={
           <PrivateRoute>

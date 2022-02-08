@@ -18,7 +18,7 @@ function MainMenu() {
                 </div>
             </div>
             <div className="menu__choices">
-                <div className="menu__choices__button" onClick={() => navigate('/dashboard')}>
+                <div className="menu__choices__button" onClick={() => navigate('/feed')}>
                     <h2>Posts</h2>
                 </div>
                 <div className="menu__choices__button">

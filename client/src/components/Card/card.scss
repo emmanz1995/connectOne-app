@@ -1,11 +1,18 @@
 @use '../../scss/partials/_variables.scss' as *;
+@use '../../scss/partials/_mixins.scss' as *;
 
 .card {
   width: 100%;
-  border: 1px solid $MainTheme;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   display: flex;
   justify-content: space-between;
   margin: 10px 0 0 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  @include mobile() {
+    display: flex;
+    flex-direction: column;
+  }
   &__header{
     margin: 10px;
   }
@@ -18,7 +25,10 @@
   }
 
   &__img__container {
-    width: 300px;
+    width: 50%;
+    @include mobile() {
+      width: 100%;
+    }
   }
   &__image {
     width: 100%;

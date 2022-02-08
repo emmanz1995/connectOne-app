@@ -16,13 +16,17 @@ function Home() {
     }, [dispatch])
     return (
         <div className="posts">
+            <div className="posts__info__container">
+                <h3>Posts</h3>
+                <button className="create-btn">Create Post</button>
+            </div>
             <div className="posts__container1">
                 {data?.slice(0, 2).map(post => (
                     <Card key={post?._id} post={post} />
                 ))}
             </div>
             <div className="posts__container2">
-                {data?.slice(3, 6).map(post => (
+                {data?.slice(2).map(post => (
                     <div className="sm-card" onClick={() => navigate(`/post/${post?._id}`)}>
                         <div className="img">
                             <img className="img__post" src={post.image} alt={post?.title} />
