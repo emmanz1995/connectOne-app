@@ -6,8 +6,10 @@ export const PrivateRoute = ({ children }) => {
     const isLoggedIn = useSelector(state => state?.auth);
     const { isAuthenticated } = isLoggedIn;
     if(!isAuthenticated) {
-        return <Navigate to="/menu" state={{ from: location }} />
+        return <Navigate to="/login" state={{ from: location }} />
     }
+
+    console.log(isAuthenticated)
 
     return children
 }

@@ -11,40 +11,45 @@ function Home() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const data = useSelector(state => state?.posts)
+    const auth = useSelector(state => state?.auth)
+    const { isAuthenticated } = auth;
     useEffect(() => {
         dispatch(getPostsAction())
-    }, [dispatch])
+    }, [])
     return (
         <div className="posts">
-            <div className="posts__info__container">
-                <h3>Posts</h3>
-                <button className="create-btn">Create Post</button>
-            </div>
-            <div className="posts__container1">
-                {data?.slice(0, 2).map(post => (
-                    <Card key={post?._id} post={post} />
-                ))}
-            </div>
-            <div className="posts__container2">
-                {data?.slice(2).map(post => (
-                    <div className="sm-card" onClick={() => navigate(`/post/${post?._id}`)}>
-                        <div className="img">
-                            <img className="img__post" src={post.image} alt={post?.title} />
-                        </div>
-                        <div className="posts-content">
+            {isAuthenticated ? (
+                <>
+                    <div className="posts__info__container">
+                        <h3>Posts</h3>
+                        <button className="create-btn">Create Post</button>
+                    </div>
+                    <div className="posts__container1">
+                        {data?.slice(0, 2).map(post => (
+                            <Card key={post?._id} post={post} />
+                        ))}
+                    </div>
+                    <div className="posts__container2">
+                        {data?.slice(2).map(post => (
+                            <div className="sm-card" onClick={() => navigate(`/post/${post?._id}`)}>
+                                <div className="img">
+                                    <img className="img__post" src={post.image} alt={post?.title} />
+                                </div>
+                                <div className="posts-content">
                             <span>
                                 <h3>{post?.title}</h3>
                                 <p>{moment(post?.createdAt).format('MMMM DD, YYYY')}</p>
                             </span>
-                        </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
-            {/*<div className="posts__container3">*/}
-            {/*    {data?.slice(6).map(post => (*/}
-            {/*        <Card post={post} key={post?._id} />*/}
-            {/*    ))}*/}
-            {/*</div>*/}
+                </>
+            ) : (
+                <div className="no-access">
+                    <h1>You are not authorized to access this page Login to get access!</h1>
+                </div>
+            )}
         </div>
     );
 }

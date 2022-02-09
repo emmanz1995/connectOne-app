@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './auth.scss';
-import LoginImg from '../../assets/undraw_secure_login_pdn4.svg';
+import LoginImg from '../../assets/images/undraw_secure_login_pdn4.svg';
 import { onLogin } from '../../app/action/auth';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Navigate } from 'react-router-dom';

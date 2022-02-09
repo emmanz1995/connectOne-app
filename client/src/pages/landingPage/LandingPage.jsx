@@ -1,16 +1,33 @@
 import React from 'react';
 import './landing.scss';
+import image from '../../assets/images/undraw_programming_re_kg9v.svg';
 
 function LandingPage() {
     return (
         <div className="landing">
             <div className="landing__banner">
-                <div className="landing__banner__getstarted"></div>
-                <div className="landing__banner__landingInfo"></div>
+                <div className="landing__banner__getstarted">
+                    <div className="text__wrapper">
+                        <h4 className="text__wrapper__subtitle">Welcome to ConnectOne</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias distinctio eaque est explicabo laborum maiores molestiae, neque obcaecati odit officiis perferendis placeat quae quis, sed similique tenetur vel! Dolor eius eos ex itaque labore molestias numquam quae quod ratione, sed temporibus tenetur totam ullam? Illo iure maxime officiis quas soluta.</p>
+                        <form className="getStarted__form">
+                            <input type="text" className="getStarted__form__input" name="email" />
+                            <button className="getStarted__form__btn">Get Started</button>
+                        </form>
+                    </div>
+                </div>
+                <div className="landing__banner__landingInfo">
+                    <div className="landingImg">
+                        <img src={image} alt="" className="landingImg__img" width="600" height="400" />
+                    </div>
+                </div>
             </div>
-            {/*<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">*/}
-            {/*    <path fill="#6c63ff" fill-opacity="1" d="M0,256L48,261.3C96,267,192,277,288,240C384,203,480,117,576,112C672,107,768,181,864,186.7C960,192,1056,128,1152,96C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" />*/}
-            {/*</svg>*/}
+            <div className="landing__services">
+                <span className="landing__services__block">post</span>
+                <span className="landing__services__block">comment/like</span>
+                <span className="landing__services__block">follow</span>
+                <span className="landing__services__block">chat</span>
+            </div>
         </div>
     );
 }

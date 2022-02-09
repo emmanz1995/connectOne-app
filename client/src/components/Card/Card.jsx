@@ -24,7 +24,7 @@ const Card = ({ post }) => {
                             1444 <i className="far fa-star" />
                         </span>
                     </div><br/><br/>
-                    <button onClick={() => navigate(`/post/${_id}`)} className="btn__editProfile">View More</button>
+                    <button onClick={() => navigate(`/post/${_id}`)} className="btn__view">View More</button>
                 </div>
             </div>
             <div className="card__img__container">

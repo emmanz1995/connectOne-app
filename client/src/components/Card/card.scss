@@ -3,18 +3,18 @@
 
 .card {
   width: 100%;
-  border: 1px solid #ddd;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
   margin: 10px 0 0 0;
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: $LightTheme 0 3px 8px;
   @include mobile() {
     display: flex;
     flex-direction: column;
   }
   &__header{
     margin: 10px;
+    color: $MainTheme;
   }
 
   &__action {
@@ -33,4 +33,8 @@
   &__image {
     width: 100%;
   }
+}
+
+.btn__view {
+  @include btn($MainTheme)
 }

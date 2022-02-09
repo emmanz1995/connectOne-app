@@ -28,6 +28,22 @@
   }
 }
 
+@mixin darkBtn($color) {
+  border: solid 2px $color;
+  background: linear-gradient(to right, transparent 50%, $color 50%) left;
+  background-size: 200%;
+  color: $color;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px;
+  transition: 0.2s ease-out;
+  &:hover {
+    background-color: $SecondaryTheme;
+    color: $MainTheme;
+    background-position: left;
+  }
+}
+
 @mixin titleTheme($theme, $size) {
   color: $theme;
   font-size: $size;

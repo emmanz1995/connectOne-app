@@ -3,7 +3,7 @@ import { AUTHENTICATE_USER, AUTHENTICATE_USER_ERROR } from '../index';
 
 const { REACT_APP_API_URL } = process.env;
 
-export const onLogin = (formData, navigate) => async dispatch => {
+export const onLogin = (formData) => async dispatch => {
     try {
         const response = await axios.post(`${REACT_APP_API_URL}/api/auth/login`, formData,{
             headers: {
@@ -12,7 +12,6 @@ export const onLogin = (formData, navigate) => async dispatch => {
         })
         if(response?.data?.token) {
             localStorage.setItem('jwt', JSON.stringify(response.data));
-            navigate('/menu');
         }
         dispatch({
             type: AUTHENTICATE_USER,
