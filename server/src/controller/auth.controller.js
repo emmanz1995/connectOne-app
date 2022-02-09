@@ -29,7 +29,17 @@ const login = expressAsyncHandler(async(req, res) => {
     }
 })
 
+const me = expressAsyncHandler(async(req, res) => {
+    try {
+        const getProfile = await User.findById({ _id: req?.user?._id })
+        res?.json(getProfile)
+    } catch(error) {
+        res?.json(error)
+    }
+})
+
 module.exports = {
     register,
-    login
+    login,
+    me
 }
