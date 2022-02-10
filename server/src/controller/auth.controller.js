@@ -1,6 +1,8 @@
 const User = require('../model/user.model');
 const expressAsyncHandler = require('express-async-handler');
 const generateJwt = require('../util/generateJwt');
+const Post = require('../model/post.model');
+const Comment = require('../model/comments.model');
 
 const register = expressAsyncHandler(async(req, res) => {
     const { email, username, password } = req?.body;
@@ -38,8 +40,21 @@ const me = expressAsyncHandler(async(req, res) => {
     }
 })
 
+const deleteMyAccount = expressAsyncHandler(async (req, res) => {
+    const userId = req?.user?._id
+    try {
+        const deleteMe = await User.findByIdAndDelete({ _id: userId })
+        await Post.deleteMany({ postedBy: userId })
+        await Comment.deleteMany({ reader: userId })
+        res?.json(deleteMe)
+    } catch(error) {
+        res?.json(error);
+    }
+})
+
 module.exports = {
     register,
     login,
-    me
+    me,
+    deleteMyAccount
 }
