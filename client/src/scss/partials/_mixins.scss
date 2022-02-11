@@ -48,3 +48,8 @@
   color: $theme;
   font-size: $size;
 }
+
+@mixin linkBtn($color, $size) {
+  color: $color;
+  font-size: $size;
+}
