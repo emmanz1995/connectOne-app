@@ -1,0 +1,24 @@
+@use '../../scss/partials/mixins' as *;
+@use '../../scss/partials/variables' as *;
+
+.navbar {
+  padding: 5px;
+  background-color: $MainTheme;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__title {
+    @include titleTheme($LightTheme, 27px);
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    grid-gap: 20px;
+  }
+
+  &__link {
+    @include linkBtn($LightTheme, 17px);
+    text-decoration: none;
+  }
+}
