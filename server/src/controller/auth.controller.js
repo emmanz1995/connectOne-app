@@ -3,14 +3,18 @@ const expressAsyncHandler = require('express-async-handler');
 const generateJwt = require('../util/generateJwt');
 const Post = require('../model/post.model');
 const Comment = require('../model/comments.model');
+const gravatar = require('gravatar');
 
 const register = expressAsyncHandler(async(req, res) => {
     const { email, username, password } = req?.body;
     const emailExists = await User.findOne({ email })
     if(emailExists) throw new Error('Email already exists!');
     try {
-        const createUser = await User.create({ email, username, password });
-        res?.status(200).json(createUser)
+        const avatar = gravatar.url(email, {
+            s: '200', r: 'pg', d: 'mm'
+        })
+        const createUser = await User.create({ email, avatar, username, password });
+        res?.status(200).json(createUser);
     } catch(e) {
         res?.json(e)
     }

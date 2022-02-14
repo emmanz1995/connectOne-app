@@ -25,11 +25,23 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    dob: {
+        type: Date,
+        required: false
+    },
+    avatar: {
+        type: String,
+        default: ''
+    },
+    bio: {
+        type: String,
+        required: false
+    },
     isAdmin: {
         type: String,
         default: false
     }
-});
+}, { timestamps: true });
 
 userSchema.pre('save', async function(next) {
     if(!this.isModified('password')) {
