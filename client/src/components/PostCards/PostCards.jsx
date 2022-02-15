@@ -10,17 +10,20 @@ const PostCards = ({ post }) => {
     return (
         <div className="postCard">
             <div className="postCard__header">
-                <span>
-                    <h2>{post?.title}</h2>
-                </span>
-                <span style={{ display: 'flex'}}>
-                    <div className="icon-wrapper">
-                        <img src={Update} alt="" width="600" height="400" className="icon" />
-                    </div>
-                    <div className="icon-wrapper">
-                        <img src={Trash} alt="" width="600" height="400" className="icon" />
-                    </div>
-                </span>
+                <div>emmanz95</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%'}}>
+                    <span>
+                        <h2>{post?.title}</h2>
+                    </span>
+                    <span style={{ display: 'flex'}}>
+                        <div className="icon-wrapper">
+                            <img src={Update} alt="" width="600" height="400" className="icon" />
+                        </div>
+                        <div className="icon-wrapper">
+                            <img src={Trash} alt="" width="600" height="400" className="icon" />
+                        </div>
+                    </span>
+                </div>
             </div>
             <div className="postCard__body">
                 <img src={post?.image} alt="post image" width="600" height="400" className="post-image" />

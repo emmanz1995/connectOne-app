@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './auth.scss';
 import LoginImage from '../../assets/images/undraw_secure_login_pdn4.svg';
+import { Auth } from '../../api/auth';
 
 function Login() {
+    const initialValues = {
+        username: '',
+        password: ''
+    }
+    const [loginValues, setLoginValues] = useState(initialValues)
+
+    const handleChange = (evt) => {
+        const {name, value} = evt?.target;
+        setLoginValues({ ...loginValues, [name]: value });
+    }
+
+    const handleLogin = (evt) => {
+        evt.preventDefault();
+        const formData = {
+            username: loginValues?.username,
+            password: loginValues?.password,
+        }
+        Auth.onLogin(formData).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     return (
         <div className="auth">
             <div className="auth__banner" />
@@ -16,10 +41,10 @@ function Login() {
                     </div>
                 </div>
                 <div className="auth__form__background">
-                    <form className="auth__form">
+                    <form className="auth__form" onSubmit={handleLogin}>
                         <h3 className="auth__title">Login to get access</h3>
-                        <input type="text" className="auth__input" placeholder="Username"/>
-                        <input type="text" className="auth__input" placeholder="Password"/>
+                        <input type="text" className="auth__input" placeholder="Username" name="username" value={loginValues?.username} onChange={handleChange} />
+                        <input type="text" className="auth__input" placeholder="Password" name="password" value={loginValues?.password} onChange={handleChange} />
                         <button className="auth__btn">Login</button>
                     </form>
                     <div className="divider">
@@ -28,7 +53,7 @@ function Login() {
                         <span />
                     </div>
                     <div style={{ width: '60%', margin: "0 auto"}}>
-                        <button className="join__btn">Join here</button>
+                        <button type="submit" className="join__btn">Join here</button>
                     </div>
                 </div>
             </div>
