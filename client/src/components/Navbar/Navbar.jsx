@@ -4,8 +4,16 @@ import Home from '../../assets/icons/home.svg';
 import Plus from '../../assets/icons/plus.svg';
 import Bookmark from '../../assets/icons/bookmark.svg';
 import Logout from '../../assets/icons/sign-out.svg';
+import { Auth } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const handleLogout = (evt) => {
+        evt.preventDefault();
+        Auth.onLogout();
+        navigate('/');
+    }
     return (
         <div className="navbar">
             <h1 className="navbar__title">ConnectOne</h1>
@@ -20,7 +28,7 @@ const Navbar = () => {
                     <img src={Bookmark} alt="Bookmark" width="600" height="400" className="icon__link" />
                 </a>
                 <a href="/" className="navbar__link">
-                    <img src={Logout} alt="Logout" width="600" height="400" className="icon__link" />
+                    <img src={Logout} alt="Logout" width="600" height="400" className="icon__link" onClick={handleLogout} />
                 </a>
             </ul>
         </div>

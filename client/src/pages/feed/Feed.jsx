@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './feed.scss';
 import PostCards from '../../components/PostCards/PostCards';
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../../app/action/user";
 
 function Feed() {
+    const dispatch = useDispatch();
+    const me = useSelector(state => state?.user);
+    useEffect(() => {
+        const fetchMyProfile = () => {
+            dispatch(getUser());
+        }
+        return fetchMyProfile()
+    }, [])
+
     const posts = [
         {
             id: 1,
@@ -40,9 +51,10 @@ function Feed() {
             content: "The World is so beautiful!",
             author: "emmanz95",
             image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637458399/upg37ddol49bpof7pphk.jpg"
-        },
-
+        }
     ]
+
+    console.log(me);
     return (
         <div>
             <Navbar />

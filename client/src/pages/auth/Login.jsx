@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './auth.scss';
 import LoginImage from '../../assets/images/undraw_secure_login_pdn4.svg';
 import { Auth } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
     const initialValues = {
         username: '',
         password: ''
@@ -22,7 +24,8 @@ function Login() {
             password: loginValues?.password,
         }
         Auth.onLogin(formData).then((response) => {
-            console.log(response)
+            console.log(response?.data);
+            navigate('/feed');
         }).catch((error) => {
             console.log(error);
         })

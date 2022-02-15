@@ -6,12 +6,11 @@
   max-width: 1000px;
   margin: 0 auto;
   grid-gap: 20px;
-  height: 100%;
-  overflow: hidden;
+
   &__main {
     width: 70%;
     overflow: auto;
-    height: 720px;
+    height: 915px;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
       display: none;
