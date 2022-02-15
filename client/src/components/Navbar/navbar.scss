@@ -2,11 +2,11 @@
 @use '../../scss/partials/variables' as *;
 
 .navbar {
-  padding: 5px;
   background-color: $MainTheme;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   &__title {
     @include titleTheme($LightTheme, 27px);
   }
@@ -14,11 +14,17 @@
     display: flex;
     align-items: center;
     list-style: none;
-    grid-gap: 20px;
+    grid-gap: 15px;
   }
 
   &__link {
     @include linkBtn($LightTheme, 17px);
     text-decoration: none;
+    width: 30px;
+    height: 30px;
+    .icon__link {
+      width: 100%;
+      height: auto;
+    }
   }
 }

@@ -1,0 +1,31 @@
+@use '../../scss/partials/variables' as *;
+@use '../../scss/partials/mixins' as *;
+
+.postCard {
+  width: 100%;
+  border-radius: 4px;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $MainTheme;
+    padding: 10px;
+  }
+  &__body {
+    width: 100%;
+    .post-image {
+      width: 100%;
+    }
+  }
+  &__footer {}
+}
+
+.icon-wrapper {
+  width: 30px;
+  height: 30px;
+}
+
+.icon {
+  width: 100%;
+  height: auto;
+}
