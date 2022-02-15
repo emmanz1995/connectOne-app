@@ -1,7 +1,10 @@
 import React from 'react';
+import './auth.scss';
 
-function Register(props) {
-    return <h1>Register</h1>
+function Register() {
+    return (
+        <div className="auth"></div>
+    )
 }
 
 export default Register;

@@ -1,7 +1,8 @@
 import React from 'react';
-import Layout from '../../components/Layout';
 import './feed.scss';
 import PostCards from '../../components/PostCards/PostCards';
+import Navbar from "../../components/Navbar/Navbar";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Feed() {
     const posts = [
@@ -43,14 +44,19 @@ function Feed() {
 
     ]
     return (
-        <Layout>
-            <h1>Feed</h1>
-            <div className="post-card-container">
-                {posts?.map(post => (
-                    <PostCards key={post?.id} post={post} />
-                ))}
+        <div>
+            <Navbar />
+            <div className="feed">
+                <div className="feed__main">
+                    {posts?.map(post => (
+                        <PostCards key={post?.id} post={post} />
+                    ))}
+                </div>
+                <div className="feed__sidebar__wrapper">
+                    <Sidebar />
+                </div>
             </div>
-        </Layout>
+        </div>
     )
 }
 
