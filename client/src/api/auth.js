@@ -12,7 +12,10 @@ function onLogin(formData) {
             localStorage.setItem('jwt', JSON.stringify(response?.data))
         }
         return response;
-    }).catch((error) => console.log(error));
+    }).catch((error) => {
+        // console.log(error)
+        return error?.response?.data?.msg;
+    });
 }
 function onLogout() {
     localStorage.clear()

@@ -6,14 +6,14 @@ const token = JSON.parse(localStorage.getItem('jwt'))
 
 export const getUser = () => async (dispatch) => {
     try {
-        const response = axios.get(`${REACT_APP_API_URL}/api/auth/me`,{
+        const response = await axios.get(`${REACT_APP_API_URL}/api/auth/me`,{
             headers: {
                 Authorization: `Bearer ${token?.token}`
             }
         })
         dispatch({
             type: GET_USER,
-            payload: response.data
+            payload: response?.data
         })
     } catch(e) {
         console.log(e);

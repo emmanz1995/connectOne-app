@@ -19,12 +19,26 @@
   &__sidebar__wrapper {
     width: 30%;
   }
+  @include mobile() {
+    .feed {
+      display: flex;
+      flex-direction: column;
+      &__main {
+        width: 100%;
+        padding: 15px;
+      }
+      &__sidebar__wrapper {
+        display: none;
+      }
+    }
+  }
 }
 
 .post-card-container {
   max-width: 700px;
   margin: 0 auto;
 }
+
 
 
 

@@ -5,6 +5,7 @@ import LandingPage from './pages/landing/LandingPage';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Feed from './pages/feed/Feed';
+import {PrivateRoute} from "./util/PrivateRoute";
 
 function App() {
   return (
@@ -13,8 +14,13 @@ function App() {
         {/*<Route exact path="/" element={<LandingPage />} />*/}
         <Route exact path="/" element={<Login />} />
         <Route exact path="/Register" element={<Register />} />
-        <Route exact path="/feed" element={<Feed />} />
+        <Route exact path="/feed" element={
+            <PrivateRoute>
+                <Feed />
+            </PrivateRoute>
+        } />
       </Routes>
+        }
     </div>
   );
 }

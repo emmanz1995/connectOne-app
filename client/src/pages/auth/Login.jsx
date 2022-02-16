@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './auth.scss';
 import LoginImage from '../../assets/images/undraw_secure_login_pdn4.svg';
 import { Auth } from '../../api/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
+
+const token = JSON.parse(localStorage.getItem('jwt'));
 
 function Login() {
     const navigate = useNavigate();
@@ -29,6 +31,10 @@ function Login() {
         }).catch((error) => {
             console.log(error);
         })
+    }
+
+    if(token) {
+        return <Navigate to={{ pathname: "/feed" }} />
     }
 
     return (

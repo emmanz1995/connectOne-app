@@ -3,10 +3,14 @@
 
 .navbar {
   background-color: $MainTheme;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //max-width: 1000px;
+    //margin: 0 auto;
+  }
   &__title {
     @include titleTheme($LightTheme, 27px);
   }
