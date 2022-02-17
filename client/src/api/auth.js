@@ -18,7 +18,7 @@ function onLogin(formData) {
     });
 }
 function onLogout() {
-    localStorage.clear()
+    localStorage.removeItem('jwt');
 }
 function onRegister(formData) {
     axios.post(`${REACT_APP_API_URL}/auth/login`, formData,{
@@ -30,8 +30,22 @@ function onRegister(formData) {
     }).catch((error) => console.log(error));
 }
 
+function getUser() {
+    const token = JSON.parse(localStorage.getItem('jwt'))
+    return axios.get(`${REACT_APP_API_URL}/api/auth/me`, {
+        headers: {
+            Authorization: `Bearer ${token?.token}`
+        }
+    }).then((response) => {
+        return response.data;
+    }).catch((error) => {
+        return error?.response?.data?.msg;
+    })
+}
+
 export const Auth = {
     onLogin,
     onLogout,
-    onRegister
+    onRegister,
+    getUser
 }

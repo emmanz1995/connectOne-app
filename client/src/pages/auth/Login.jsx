@@ -26,7 +26,7 @@ function Login() {
             password: loginValues?.password,
         }
         Auth.onLogin(formData).then((response) => {
-            console.log(response?.data);
+            // console.log(response?.data);
             navigate('/feed');
         }).catch((error) => {
             console.log(error);

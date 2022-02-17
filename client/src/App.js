@@ -13,14 +13,13 @@ function App() {
       <Routes>
         {/*<Route exact path="/" element={<LandingPage />} />*/}
         <Route exact path="/" element={<Login />} />
-        <Route exact path="/Register" element={<Register />} />
-        <Route exact path="/feed" element={
+        <Route path="/Register" element={<Register />} />
+        <Route path="/feed" element={
             <PrivateRoute>
                 <Feed />
             </PrivateRoute>
         } />
       </Routes>
-        }
     </div>
   );
 }

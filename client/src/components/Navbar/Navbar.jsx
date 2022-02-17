@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const handleLogout = () => {
+    const handleLogout = (evt) => {
+        evt.preventDefault();
         Auth.onLogout();
         navigate('/');
     }

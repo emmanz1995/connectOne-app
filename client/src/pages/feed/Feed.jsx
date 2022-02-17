@@ -1,68 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './feed.scss';
 import PostCards from '../../components/PostCards/PostCards';
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../../app/action/user";
-
+import { Auth } from "../../api/auth";
 function Feed() {
-    const dispatch = useDispatch();
-    const me = useSelector(state => state?.user);
+    const mount = useRef(true)
+    const [profile, setProfile] = useState({});
+
     useEffect(() => {
-        const fetchMyProfile = () => {
-            dispatch(getUser());
-        }
-        return fetchMyProfile()
+        fetchMyProfile();
+         return () => (mount.current = false);
     }, [])
 
-    const posts = [
-        {
-            id: 1,
-            title: "Hello World!",
-            content: "The World is so beautiful!",
-            author: "emmanz95",
-            image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1624706917/diw7py8hbftmhidos0yk.jpg"
-        },
-        {
-            id: 2,
-            title: "Hello World!",
-            content: "The World is so beautiful!",
-            author: "JackSwagger",
-            image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1625241552/z4fu3hifx8himmkwm6gb.jpg"
-        },
-        {
-            id: 3,
-            title: "Hello World!",
-            content: "The World is so beautiful!",
-            author: "emmanz95",
-            image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1624714570/oc4zprjkschdjs1ehyec.jpg"
-        },
-        {
-            id: 4,
-            title: "Hello World!",
-            content: "The World is so beautiful!",
-            author: "emmanz95",
-            image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637538744/ubsolj4hl3d4x2sknemm.jpg"
-        },
-        {
-            id: 5,
-            title: "Hello World!",
-            content: "The World is so beautiful!",
-            author: "emmanz95",
-            image: "https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1637458399/upg37ddol49bpof7pphk.jpg"
-        }
-    ]
-
-    console.log(me);
+    const fetchMyProfile = () => {
+        Auth.getUser().then((response) => {
+            if(mount.current) {
+                setProfile(response);
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
     return (
         <div>
             <Navbar />
             <div className="feed">
                 <div className="feed__main">
-                    {posts?.map(post => (
-                        <PostCards key={post?.id} post={post} />
-                    ))}
+                    <h3>{profile?.username}</h3>
+                    {/*{posts?.map(post => (*/}
+                    {/*    <PostCards key={post?.id} post={post} />*/}
+                    {/*))}*/}
                 </div>
                 <div className="feed__sidebar__wrapper">
                     <Sidebar />
