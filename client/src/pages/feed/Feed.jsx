@@ -9,11 +9,6 @@ function Feed() {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        fetchMyProfile();
-         return () => (mount.current = false);
-    }, [])
-
-    const fetchMyProfile = () => {
         Auth.getUser().then((response) => {
             if(mount.current) {
                 setProfile(response);
@@ -21,7 +16,10 @@ function Feed() {
         }).catch((error) => {
             console.log(error);
         })
-    }
+
+         return () => (mount.current = false);
+    }, [])
+
     return (
         <div>
             <Navbar />

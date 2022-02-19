@@ -52,8 +52,11 @@ function Login() {
                 <div className="auth__form__background">
                     <form className="auth__form" onSubmit={handleLogin}>
                         <h3 className="auth__title">Login to get access</h3>
-                        <input type="text" className="auth__input" placeholder="Username" name="username" value={loginValues?.username} onChange={handleChange} />
-                        <input type="text" className="auth__input" placeholder="Password" name="password" value={loginValues?.password} onChange={handleChange} />
+                        <label htmlFor="username">Username:</label>
+                        <input type="text" className="auth__input" placeholder="johnnyboy97" name="username" value={loginValues?.username} onChange={handleChange} />
+                        <label htmlFor="password">Password:</label>
+                        <input type="text" className="auth__input" placeholder="******************" name="password" value={loginValues?.password} onChange={handleChange} />
+                        <label htmlFor="">Reveal Password</label><input type="checkbox" />
                         <button className="auth__btn">Login</button>
                     </form>
                     <div className="divider">

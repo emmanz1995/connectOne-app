@@ -5,7 +5,8 @@ import LandingPage from './pages/landing/LandingPage';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Feed from './pages/feed/Feed';
-import {PrivateRoute} from "./util/PrivateRoute";
+import { PrivateRoute } from './util/PrivateRoute';
+import Profile from './pages/profile/Profile';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
                 <Feed />
             </PrivateRoute>
         } />
+          <Route path="/profile" element={
+            <PrivateRoute>
+                <Profile />
+            </PrivateRoute>
+          } />
       </Routes>
     </div>
   );
