@@ -1,0 +1,26 @@
+@use '../../../scss/partials/variables';
+
+.modal {
+  width: 600px;
+  height: 350px;
+  background-color: variables.$SecondaryTheme;
+  border-radius: 5px;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: variables.$LightTheme;
+  }
+
+  &__body {}
+  &__close {
+    width: 30px;
+    height: 30px;
+    img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+  }
+}

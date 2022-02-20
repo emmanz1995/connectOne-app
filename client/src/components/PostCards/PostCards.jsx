@@ -8,9 +8,9 @@ import './postCard.scss';
 
 const PostCards = ({ post }) => {
     return (
-        <div className="postCard">
+        <div className="postCard" key={post?._id}>
             <div className="postCard__header">
-                <div>emmanz95</div>
+                <div>{post?.postedBy?.username}</div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%'}}>
                     <span>
                         <h2>{post?.title}</h2>

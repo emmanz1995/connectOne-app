@@ -22,7 +22,7 @@ const getPosts = expressAsyncHandler(async (req, res) => {
                 $in: [categoryName]
             }})
         } else {
-            posts = await Post.find().populate('postedBy', '_id username')
+            posts = await Post.find().populate('postedBy', '_id username avatar')
         }
         res?.json(posts)
     } catch(error) {
