@@ -4,7 +4,7 @@ import { AuthHeader } from '../../util/authHeader';
 const { REACT_APP_API_URL } = process.env;
 
 const AuthorizationHeader = AuthHeader();
-AuthorizationHeader['Content-Type'] = 'application/json';
+AuthorizationHeader['content-type'] = 'application/json';
 
 export const fetchPosts = () => async (dispatch) => {
     try {
