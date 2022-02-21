@@ -1,19 +1,45 @@
 @use '../../../scss/partials/variables';
+@use '../../../scss/partials/mixins';
 
 .modal {
   width: 600px;
-  height: 350px;
+  height: 500px;
   background-color: variables.$SecondaryTheme;
   border-radius: 5px;
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
     color: variables.$LightTheme;
   }
 
-  &__body {}
+  &__body {
+    width: 100%;
+    color: variables.$LightTheme;
+  }
+  &__form {
+    padding: 15px;
+  }
+  &__input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid variables.$MainTheme;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  &__textarea {
+    width: 100%;
+    border: 2px solid variables.$MainTheme;
+    border-radius: 5px;
+  }
+  .control-form {
+    margin-bottom: 10px;
+  }
+  &__btn {
+    width: 100%;
+    @include mixins.btn(variables.$MainTheme);
+  }
   &__close {
     width: 30px;
     height: 30px;

@@ -1,10 +1,12 @@
 import {CREATE_POST, CREATE_POST_ERROR, GET_POSTS, GET_USER_ERROR} from '../types';
 import axios from 'axios';
-import { AuthHeader } from '../../util/authHeader';
+// import { AuthHeader } from '../../util/authHeader';
 const { REACT_APP_API_URL } = process.env;
 
-const AuthorizationHeader = AuthHeader();
-AuthorizationHeader['content-type'] = 'application/json';
+// const AuthorizationHeader = AuthHeader();
+// AuthorizationHeader['content-type'] = 'application/json';
+
+const user = JSON.parse(localStorage.getItem('jwt'))
 
 export const fetchPosts = () => async (dispatch) => {
     try {
@@ -25,7 +27,10 @@ export const fetchPosts = () => async (dispatch) => {
 export const onCreatePost = (formData) => async (dispatch) => {
     try {
         const response = await axios.post(`${REACT_APP_API_URL}/api/posts/createpost`, formData, {
-            headers: AuthorizationHeader
+            headers: {
+                Authorization: `Bearer ${user?.token}`,
+                'Content-Type': 'application/json'
+            }
         })
         dispatch({
             type: CREATE_POST,

@@ -53,3 +53,13 @@
 .bookmark-icon {
   width: 30px;
 }
+
+.img-container {
+  width: 30px;
+  height: 30px;
+  img {
+    border-radius: 100%;
+    border: 1px solid $SecondaryTheme;
+    background-color: $LightTheme;
+  }
+}

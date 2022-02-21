@@ -15,7 +15,7 @@ function Login() {
     const [loginValues, setLoginValues] = useState(initialValues)
 
     const handleChange = (evt) => {
-        const {name, value} = evt?.target;
+        const { name, value } = evt.target;
         setLoginValues({ ...loginValues, [name]: value });
     }
 

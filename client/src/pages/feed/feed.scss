@@ -39,6 +39,19 @@
   margin: 0 auto;
 }
 
+@include laptop() {
+  .feed {
+    &__main {
+      width: 70%;
+      overflow: auto;
+      height: 675px;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
 
 
 
