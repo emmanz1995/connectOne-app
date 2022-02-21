@@ -40,6 +40,11 @@
 }
 
 @include laptop() {
+  .responsive-sidebar {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 75%;
+  }
   .feed {
     &__main {
       width: 70%;

@@ -1,11 +1,14 @@
 import React from 'react';
 import './sidebar.scss';
+import Hamburger from '../../assets/icons/hamburger-menu.svg';
 
 const Sidebar = () => {
     return (
         <div className="sidebar">
             <ul className="sidebar__list">
-                <h2>Users</h2>
+                <div className="right">
+                    <h2>Users</h2>
+                </div>
                 <hr />
                 <li><a href="">emmanz95</a></li>
                 <li><a href="">Jed992</a></li>

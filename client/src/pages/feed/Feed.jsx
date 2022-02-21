@@ -10,7 +10,11 @@ import { useDispatch, useSelector } from 'react-redux';
 function Feed() {
     const mount = useRef(true)
     const [profile, setProfile] = useState({});
+    const [openDraw, setOpenDraw] = useState(false);
     const dispatch = useDispatch();
+
+    const openSidebar = () => setOpenDraw(true);
+    const closeSidebar = () => setOpenDraw(false);
 
     const getPosts = useSelector(state => state?.postsReducer);
 
@@ -38,17 +42,20 @@ function Feed() {
 
     return (
         <div>
-            <Navbar />
-            <div className="feed">
-                {loading ?
-                    <div className="feed__main">
-                        {posts?.length > 0 ? posts?.map(post => (
-                            <PostCards key={post?.id} post={post} />
-                        )): <p>No posts Found!</p>}
-                    </div> : <p>Posts are loading...</p>
-                }
-                <div className="feed__sidebar__wrapper">
-                    <Sidebar />
+            <Navbar openSidebar={openSidebar} closeSidebar={closeSidebar} openDraw={openDraw} />
+            <div>
+                {openDraw && <div className="responsive-sidebar"><Sidebar /></div>}
+                <div className="feed">
+                    {loading ?
+                        <div className="feed__main">
+                            {posts?.length > 0 ? posts?.map(post => (
+                                <PostCards key={post?.id} post={post} />
+                            )): <p>No posts Found!</p>}
+                        </div> : <p>Posts are loading...</p>
+                    }
+                    <div className="feed__sidebar__wrapper">
+                        <Sidebar />
+                    </div>
                 </div>
             </div>
         </div>

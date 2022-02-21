@@ -32,3 +32,26 @@
     }
   }
 }
+
+.right {
+  display: flex;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.hamburger-container {
+  width: 50px;
+  height: 50px;
+  display: none;
+}
+
+@include mobile() {
+  .hamburger-container {
+    display: block;
+  }
+  .navbar {
+    &__title {
+      display: none;
+    }
+  }
+}
