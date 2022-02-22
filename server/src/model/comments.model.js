@@ -18,7 +18,11 @@ const commentsSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
     }
-}, { timestamps: true });
+}, {
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true},
+    timestamps: true
+});
 
 const Comments = mongoose.model('comments', commentsSchema);
 

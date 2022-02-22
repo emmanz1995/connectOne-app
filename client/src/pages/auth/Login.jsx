@@ -4,8 +4,6 @@ import LoginImage from '../../assets/images/undraw_secure_login_pdn4.svg';
 import { Auth } from '../../api/auth';
 import { useNavigate, Navigate } from 'react-router-dom';
 
-const token = JSON.parse(localStorage.getItem('jwt'));
-
 function Login() {
     const navigate = useNavigate();
     const initialValues = {
@@ -33,7 +31,7 @@ function Login() {
         })
     }
 
-    if(token) {
+    if(Auth.getToken()) {
         return <Navigate to={{ pathname: "/feed" }} />
     }
 
@@ -64,7 +62,7 @@ function Login() {
                             <span>Need an account?</span>
                         <span />
                     </div>
-                    <div style={{ width: '60%', margin: "0 auto"}}>
+                    <div style={{padding: '0 55px', margin: "0 auto"}}>
                         <button type="submit" className="join__btn">Join here</button>
                     </div>
                 </div>

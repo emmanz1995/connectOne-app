@@ -6,7 +6,7 @@ import Comment from '../../assets/icons/comments.svg';
 import Bookmark from '../../assets/icons/bookmark.svg';
 import './postCard.scss';
 
-const PostCards = ({ post }) => {
+const PostCards = ({ post, deletePost }) => {
     const userInfo = JSON.parse(localStorage.getItem('jwt'));
     return (
         <div className="postCard" key={post?._id}>
@@ -24,7 +24,7 @@ const PostCards = ({ post }) => {
                             <img src={Update} alt="" width="600" height="400" className="icon" />
                         </div>
                         <div className="icon-wrapper">
-                            <img src={Trash} alt="" width="600" height="400" className="icon" />
+                            <img src={Trash} alt="" width="600" height="400" className="icon" onClick={() => deletePost(post?._id)} />
                         </div>
                     </span>
                     )}

@@ -18,7 +18,7 @@ function onLogin(formData) {
     });
 }
 function onLogout() {
-    localStorage.removeItem('jwt');
+    localStorage.clear();
 }
 function onRegister(formData) {
     axios.post(`${REACT_APP_API_URL}/auth/login`, formData,{
@@ -43,9 +43,15 @@ function getUser() {
     })
 }
 
+function getToken() {
+    return JSON.parse(localStorage.getItem('jwt'));
+    // return user?.token;
+}
+
 export const Auth = {
     onLogin,
     onLogout,
     onRegister,
-    getUser
+    getUser,
+    getToken
 }

@@ -4,7 +4,7 @@ import PostCards from '../../components/PostCards/PostCards';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { Auth } from '../../api/auth';
-import { fetchPosts } from '../../app/action/posts';
+import { fetchPosts, onDeletePost } from '../../app/action/posts';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Feed() {
@@ -16,7 +16,7 @@ function Feed() {
     const openSidebar = () => setOpenDraw(true);
     const closeSidebar = () => setOpenDraw(false);
 
-    const getPosts = useSelector(state => state?.postsReducer);
+    const posts = useSelector(state => state?.postsReducer);
 
     useEffect(() => {
         Auth.getUser().then((response) => {
@@ -38,7 +38,9 @@ function Feed() {
         return () => (mount.current) = false;
     }, [dispatch])
 
-    const { posts, error, loading } = getPosts;
+    const handleDeletePost = (id) => {
+        dispatch(onDeletePost(id))
+    }
 
     return (
         <div>
@@ -46,13 +48,11 @@ function Feed() {
             <div>
                 {openDraw && <div className="responsive-sidebar"><Sidebar /></div>}
                 <div className="feed">
-                    {loading ?
-                        <div className="feed__main">
-                            {posts?.length > 0 ? posts?.map(post => (
-                                <PostCards key={post?.id} post={post} />
-                            )): <p>No posts Found!</p>}
-                        </div> : <p>Posts are loading...</p>
-                    }
+                    <div className="feed__main">
+                        {posts?.length > 0 ? posts?.map(post => (
+                            <PostCards key={post?.id} post={post} deletePost={handleDeletePost} />
+                        )): <p>No posts Found!</p>}
+                    </div>
                     <div className="feed__sidebar__wrapper">
                         <Sidebar />
                     </div>

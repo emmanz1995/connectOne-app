@@ -1,10 +1,9 @@
-import {CREATE_POST, CREATE_POST_ERROR, GET_POSTS, GET_USER_ERROR} from '../types';
+import {CREATE_POST, CREATE_POST_ERROR, DELETE_POST, DELETE_POST_ERROR, GET_POSTS, GET_USER_ERROR} from '../types';
 import axios from 'axios';
-// import { AuthHeader } from '../../util/authHeader';
+import AuthHeader from '../../util/authHeader';
 const { REACT_APP_API_URL } = process.env;
 
-// const AuthorizationHeader = AuthHeader();
-// AuthorizationHeader['content-type'] = 'application/json';
+
 
 const user = JSON.parse(localStorage.getItem('jwt'))
 
@@ -41,6 +40,27 @@ export const onCreatePost = (formData) => async (dispatch) => {
         dispatch({
             type: CREATE_POST_ERROR,
             payload: err
+        })
+    }
+}
+
+export const onDeletePost = (id) => async (dispatch) => {
+    try {
+        const response = await axios.delete(`${REACT_APP_API_URL}/api/posts/deletepost/${id}`, {
+            headers: {
+                Authorization: `Bearer ${user?.token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        dispatch({
+            type: DELETE_POST,
+            payload: response?.data
+        })
+    } catch(err) {
+        console.log(err);
+        dispatch({
+            type: DELETE_POST_ERROR,
+            payload: err?.response?.data?.msg
         })
     }
 }

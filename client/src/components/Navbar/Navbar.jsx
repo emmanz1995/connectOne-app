@@ -18,6 +18,7 @@ const Navbar = ({ openSidebar, closeSidebar, openDraw }) => {
     const handleLogout = (evt) => {
         evt.preventDefault();
         Auth.onLogout();
+        // localStorage.clear();
         navigate('/');
     }
     return (

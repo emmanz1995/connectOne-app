@@ -38,7 +38,7 @@ const login = expressAsyncHandler(async(req, res) => {
 const me = expressAsyncHandler(async(req, res) => {
     const userId = req?.user?._id;
     try {
-        const getProfile = await User.findById({ _id: userId }).select('-password')
+        const getProfile = await User.findById(userId).select('-password').populate('post')
         res?.json(getProfile)
     } catch(error) {
         res?.json(error)

@@ -1,8 +1,10 @@
-
-export const AuthHeader = () => {
-    const currentUser = JSON.parse(localStorage.getItem('jwt'))
-
-    if(currentUser?.token) {
-        return { Authorization: `Bearer ${currentUser?.token}` }
-    } else {}
-}
+// import { Auth } from '../api/auth';
+//
+// export default function AuthHeader() {
+//     const token = localStorage.getItem('jwt');
+//
+//     if(token) {
+//         let data = JSON.parse(token)
+//         return { Authorization: `Bearer ${data}` }
+//     } else {}
+// }
