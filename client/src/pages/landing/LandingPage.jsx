@@ -1,6 +1,6 @@
 import React from 'react';
 // import Navbar from '../../components/Navbar/Navbar';
-import Layout from '../../components/Layout';
+import Layout from '../../components/Layout/Layout';
 
 function LandingPage() {
     return (

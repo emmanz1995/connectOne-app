@@ -1,0 +1,59 @@
+@use '../../scss/partials/variables' as *;
+@use '../../scss/partials/mixins' as *;
+
+.feed {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-gap: 20px;
+
+  &__main {
+    width: 70%;
+    overflow: auto;
+    height: 915px;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__sidebar__wrapper {
+    width: 30%;
+  }
+  @include mobile() {
+    .feed {
+      display: flex;
+      flex-direction: column;
+      &__main {
+        width: 100%;
+        padding: 15px;
+      }
+      &__sidebar__wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+.post-card-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@include laptop() {
+  .responsive-sidebar {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 75%;
+  }
+  .feed {
+    &__main {
+      width: 70%;
+      overflow: auto;
+      height: 675px;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

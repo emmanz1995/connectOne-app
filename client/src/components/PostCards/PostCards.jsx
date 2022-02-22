@@ -21,9 +21,6 @@ const PostCards = ({ post, deletePost }) => {
                     {userInfo?._id === post?.postedBy?._id && (
                         <span style={{ display: 'flex'}}>
                         <div className="icon-wrapper">
-                            <img src={Update} alt="" width="600" height="400" className="icon" />
-                        </div>
-                        <div className="icon-wrapper">
                             <img src={Trash} alt="" width="600" height="400" className="icon" onClick={() => deletePost(post?._id)} />
                         </div>
                     </span>
@@ -36,7 +33,7 @@ const PostCards = ({ post, deletePost }) => {
                 </div>
             </div>
             <div className="postCard__body">
-                <img src={post?.image} alt="post image" width="600" height="400" className="post-image" />
+                <img src={post?.image} width="600" height="400" className="post-image"  alt="" />
             </div>
             <div className="postCard__footer">
                 <span style={{ display: 'flex', alignItems: 'center', gridGap: '30px'}}>

@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import { Auth } from '../../api/auth';
 import { fetchPosts, onDeletePost } from '../../app/action/posts';
 import { useDispatch, useSelector } from 'react-redux';
+import Layout from "../../components/Layout/Layout";
 
 function Feed() {
     const mount = useRef(true)
@@ -42,23 +43,14 @@ function Feed() {
         dispatch(onDeletePost(id))
     }
 
+    const displayPosts = posts?.length > 0 ? posts?.map(post => (
+            <PostCards key={post?.id} post={post} deletePost={handleDeletePost} />
+        )): <p>No posts Found!</p>
+
     return (
-        <div>
-            <Navbar openSidebar={openSidebar} closeSidebar={closeSidebar} openDraw={openDraw} />
-            <div>
-                {openDraw && <div className="responsive-sidebar"><Sidebar /></div>}
-                <div className="feed">
-                    <div className="feed__main">
-                        {posts?.length > 0 ? posts?.map(post => (
-                            <PostCards key={post?.id} post={post} deletePost={handleDeletePost} />
-                        )): <p>No posts Found!</p>}
-                    </div>
-                    <div className="feed__sidebar__wrapper">
-                        <Sidebar />
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Layout>
+            {displayPosts}
+        </Layout>
     )
 }
 
