@@ -8,6 +8,7 @@ const categoriesRoutes = require('./routes/categories.routes');
 const authRoutes = require('./routes/auth.routes');
 const commentRoutes = require('./routes/comments.routes');
 const multer = require('multer');
+const socketio = require('socket.io');
 
 const app = express();
 const PORT = 5001;
@@ -51,6 +52,12 @@ app.use(errorHandler);
 
 dbConfig()
 
-app.listen(PORT, () => {
+const serverExpress = app.listen(PORT, () => {
     console.log(`Calling on PORT: ${PORT}!`);
 })
+
+const io = socketio(serverExpress);
+
+app.set('socketio', io)
+
+console.log('Socket Connection')
