@@ -1,0 +1,55 @@
+@use '../../scss/partials/variables' as *;
+@use '../../scss/partials/mixins' as *;
+
+.post {
+  width: 100%;
+  height: 467px;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  &__rightSide {
+    width: 50%;
+    height: 100%;
+  }
+  &__leftSide {
+    width: 50%;
+    height: 100%;
+    background-color: $LightTheme;
+  }
+}
+
+.title {
+  @include titleTheme($LightTheme, 20px)
+}
+
+.comments {
+  margin: 15px;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-icon-container {
+  width: 35px;
+  height: 35px;
+}
+.user-icon {
+  width: 100%;
+  height: auto;
+  border: 1px solid $DarkTheme;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.bin-container {
+  width: 35px;
+  height: 35px;
+}

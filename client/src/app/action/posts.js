@@ -3,8 +3,6 @@ import axios from 'axios';
 import AuthHeader from '../../util/authHeader';
 const { REACT_APP_API_URL } = process.env;
 
-
-
 const user = JSON.parse(localStorage.getItem('jwt'))
 
 export const fetchPosts = () => async (dispatch) => {

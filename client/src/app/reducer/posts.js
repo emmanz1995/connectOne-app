@@ -9,8 +9,7 @@ export const postsReducer = (posts = initialState, action) => {
             return payload;
         case GET_POSTS_ERROR:
             return {
-                error: payload,
-                loading: false
+                error: payload
             }
         case CREATE_POST:
             return [...posts, payload]

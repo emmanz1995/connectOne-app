@@ -40,9 +40,9 @@ const PostCards = ({ post, deletePost }) => {
                     <div className="star-icon">
                         <img src={StarOutline} alt="" width="600" height="400" className="icon" /> {post?.like?.length}
                     </div>
-                    <div className="comment-icon">
-                        <img src={Comment} alt="" width="600" height="400" className="icon"/>{' '} 4
-                    </div>
+                    <a className="comment-icon" href={`/post/${post?._id}`}>
+                        <img src={Comment} alt="" width="600" height="400" className="icon" />{' '} 4
+                    </a>
                 </span>
                 <div className="bookmark-icon">
                     <img src={Bookmark} alt="" width="600" height="400" className="icon" />

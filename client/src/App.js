@@ -7,6 +7,7 @@ import Register from './pages/auth/Register';
 import Feed from './pages/feed/Feed';
 import { PrivateRoute } from './util/PrivateRoute';
 import Profile from './pages/profile/Profile';
+import Post from './pages/post/Post';
 
 function App() {
   return (
@@ -16,15 +17,20 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/feed" element={
-            <PrivateRoute>
-                <Feed />
-            </PrivateRoute>
+          <PrivateRoute>
+            <Feed />
+          </PrivateRoute>
         } />
-          <Route path="/profile" element={
-            <PrivateRoute>
-                <Profile />
-            </PrivateRoute>
-          } />
+        <Route path="/profile" element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        } />
+        <Route path="/post/:id" element={
+          <PrivateRoute>
+            <Post />
+          </PrivateRoute>
+        } />
       </Routes>
     </div>
   );

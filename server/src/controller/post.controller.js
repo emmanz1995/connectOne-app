@@ -33,7 +33,7 @@ const getPosts = expressAsyncHandler(async (req, res) => {
 const getSinglePost = expressAsyncHandler( async (req, res) => {
     const id = req?.params?.id;
     try {
-        const singlePost = await Post.findById(id)
+        const singlePost = await Post.findById(id).populate('postedBy', '_id avatar username').populate('comments')
         res?.json(singlePost)
     } catch(error) {
         res?.json(error)
