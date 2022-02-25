@@ -42,8 +42,8 @@ const userSchema = new Schema({
         default: false
     }
 }, {
-    toJSON: {virtuals: true},
-    toObject: {virtuals: true},
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
     timestamps: true
 });
 
