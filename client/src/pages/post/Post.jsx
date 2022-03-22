@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Bin from '../../assets/icons/trash.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { getComments } from '../../app/action/comments';
+import Layout from "../../components/Layout/Layout";
 
 function Post() {
     const dispatch = useDispatch();
@@ -27,12 +28,8 @@ function Post() {
         dispatch(getComments(post?._id))
     }, [dispatch])
     return (
-        <>
-            <Navbar />
-            <div style={{ maxWidth: '1400px', margin: '50px auto' }}>
-                <div>
-                    <h2 className="title">{post?.title}</h2>
-                </div>
+        <Layout>
+            <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                 <div className="post">
                     <div className="post__rightSide">
                         <img src={post?.image} alt="" width="600" height="400" className="icon" />
@@ -63,7 +60,7 @@ function Post() {
                     </div>
                 </div>
             </div>
-        </>
+        </Layout>
     );
 }
 

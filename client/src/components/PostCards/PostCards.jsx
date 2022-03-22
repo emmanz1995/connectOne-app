@@ -2,12 +2,22 @@ import React from 'react';
 import Trash from '../../assets/icons/trash.svg';
 import Update from '../../assets/icons/update.svg';
 import StarOutline from '../../assets/icons/star (1).svg';
+import StarFilled from '../../assets/icons/star.svg';
 import Comment from '../../assets/icons/comments.svg';
 import Bookmark from '../../assets/icons/bookmark.svg';
 import './postCard.scss';
+import { useDispatch } from 'react-redux';
+import { onLikePost, onDisLikePost } from '../../app/action/posts';
 
 const PostCards = ({ post, deletePost }) => {
+    const dispatch = useDispatch();
     const userInfo = JSON.parse(localStorage.getItem('jwt'));
+    const handleLikePost = (id) => {
+        dispatch(onLikePost(id))
+    }
+    const handleDisLikePost = (id) => {
+        dispatch(onDisLikePost(id))
+    }
     return (
         <div className="postCard" key={post?._id}>
             <div className="postCard__header">
@@ -38,7 +48,7 @@ const PostCards = ({ post, deletePost }) => {
             <div className="postCard__footer">
                 <span style={{ display: 'flex', alignItems: 'center', gridGap: '30px'}}>
                     <div className="star-icon">
-                        <img src={StarOutline} alt="" width="600" height="400" className="icon" /> {post?.like?.length}
+                        {userInfo ? <img src={StarOutline} alt="" width="600" height="400" className="icon" onClick={()=> handleLikePost(post?._id)} /> : <img src={StarFilled} alt="" width="600" height="400" className="icon" onClick={()=> handleDisLikePost(post?._id)} />} {post?.like?.length}
                     </div>
                     <a className="comment-icon" href={`/post/${post?._id}`}>
                         <img src={Comment} alt="" width="600" height="400" className="icon" />{' '} 4

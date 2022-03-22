@@ -3,34 +3,21 @@
 
 .feed {
   display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 70px auto;
   grid-gap: 20px;
 
   &__main {
-    width: 70%;
-    overflow: auto;
-    height: 915px;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    width: 60%;
   }
   &__sidebar__wrapper {
     width: 30%;
   }
-  @include mobile() {
-    .feed {
-      display: flex;
-      flex-direction: column;
-      &__main {
-        width: 100%;
-        padding: 15px;
-      }
-      &__sidebar__wrapper {
-        display: none;
-      }
-    }
+
+  .responsive-sidebar {
+    width: 100%;
   }
 }
 
@@ -43,17 +30,34 @@
   .responsive-sidebar {
     transition: all 0.2s ease-in-out;
     position: absolute;
-    width: 75%;
+    width: 20%;
+    background-color: $DarkTheme;
+    height: 100%;
   }
   .feed {
     &__main {
-      width: 70%;
-      overflow: auto;
-      height: 675px;
-      -ms-overflow-style: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      width: 60%;
+    }
+  }
+}
+
+@include mobile() {
+  .responsive-sidebar {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 60%;
+    background-color: $DarkTheme;
+    height: 100%;
+  }
+  .feed {
+    display: flex;
+    flex-direction: column;
+    &__main {
+      width: 100%;
+      padding: 15px;
+    }
+    &__sidebar__wrapper {
+      display: none;
     }
   }
 }

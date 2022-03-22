@@ -17,9 +17,6 @@ const Layout = ({ children }) => {
                     <div className="feed__main">
                         {children}
                     </div>
-                    <div className="feed__sidebar__wrapper">
-                        <Sidebar />
-                    </div>
                 </div>
             </div>
         </div>

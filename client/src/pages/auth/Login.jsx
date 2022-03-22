@@ -53,7 +53,7 @@ function Login() {
                         <label htmlFor="username">Username:</label>
                         <input type="text" className="auth__input" placeholder="johnnyboy97" name="username" value={loginValues?.username} onChange={handleChange} />
                         <label htmlFor="password">Password:</label>
-                        <input type="text" className="auth__input" placeholder="******************" name="password" value={loginValues?.password} onChange={handleChange} />
+                        <input type="password" className="auth__input" placeholder="******************" name="password" value={loginValues?.password} onChange={handleChange} />
                         <label htmlFor="">Reveal Password</label><input type="checkbox" />
                         <button className="auth__btn">Login</button>
                     </form>

@@ -40,7 +40,11 @@ function Feed() {
     }, [dispatch])
 
     const handleDeletePost = (id) => {
-        dispatch(onDeletePost(id))
+        if(window.confirm('Are you sure you want to delete this post?')) {
+            dispatch(onDeletePost(id))
+        } else {
+            return false;
+        }
     }
 
     const displayPosts = posts?.length > 0 ? posts?.map(post => (
